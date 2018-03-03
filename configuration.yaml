@@ -1,0 +1,133 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 307
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Chicago
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+  login_attempts_threshold: 4
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+
+ifttt:
+  key: !secret ifttt_key
+
+mqtt:
+  broker: localhost
+  port: 1883
+  client_id: home-assistant-9
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+ios:
+  push:
+    categories:
+      - name: Alarm
+        identifier: 'alarm'
+        actions:
+          - identifier: 'DOOR_ALARM'
+            title: 'Door Alarm'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: yes
+            behavior: 'default'
+
+device_tracker:
+  - platform: gpslogger
+    password: !secret gpslogger_password
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+sensor: !include sensors.yaml
+group: !include groups.yaml
+automation: !include automations.yaml
+notify: !include notify.yaml
+script: !include scripts.yaml
+zone: !include zones.yaml
+
+amcrest:
+  - host: 192.168.1.78
+    username: !secret amcrest_username
+    password: !secret amcrest_password
+    sensors:
+      - motion_detector
+#      - sdcard
+#      - ptz_preset
+
+camera:
+  - platform: amcrest
+    name: amcrestCam
+    host: 192.168.1.78
+    username: !secret amcrest_username
+    password: !secret amcrest_password
+  - platform: mjpeg
+    name: foscamCam
+    mjpeg_url: !secret foscam_url
+  - platform: mjpeg
+    name: picamCam
+    mjpeg_url: http://192.168.1.94:8081
+
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+  polling_interval: 60000
+  device_config: !include zwave_device_config.yaml
+  debug: true
+
+alarm_control_panel:
+  - platform: manual
+    name: home_alarm
+    code: !secret alarm_code
+    

@@ -1,0 +1,14 @@
+switch.dining_light_switch:
+  ignored: false
+  polling_intensity: 2
+switch.front_light_switch:
+  ignored: false
+  polling_intensity: 2
+light.sun_outer_light_level:
+  ignored: false
+  polling_intensity: 2
+  refresh_value: true
+light.sun_bench_light_level:
+  ignored: false
+  polling_intensity: 2
+  refresh_value: true

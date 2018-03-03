@@ -1,0 +1,75 @@
+doorbox:
+  name: Doors
+  entities:
+    - sensor.template_front_door
+    - sensor.template_sun_room_door
+    - sensor.template_den_door
+    - sensor.template_garage_entry
+    - sensor.template_test_door
+
+lights:
+  name: Lights
+  entities:
+    - switch.dining_light_switch
+    - switch.front_light_switch
+    - light.sun_bench_light_level
+    - light.sun_outer_light_level
+
+automationLights:
+  name: Light Automations
+  entities:
+    - automation.front_light_on_sunset
+    - automation.front_light_off_sunrise
+
+automationDoors:
+  name: Door Automations
+  entities:
+    - automation.sun_room_door_open
+    - automation.front_door_open
+    - automation.den_door_open
+    - automation.garage_entry_open
+    - automation.test_door_open
+        
+automationOther:
+  name: Other Automations
+  entities:
+    - automation.email_jeff_arrive_home
+    - automation.email_rachel_arrive_home
+    - automation.sun_room_camera_motion
+
+############################################################
+
+doorsTab:
+  name: Doors
+  view: yes
+  entities:
+    - group.doorbox
+    
+lightsTab:
+  name: Lights
+  view: Yes
+  entities:
+    - group.lights
+    
+automationsTab:
+  name: Automations
+  view: Yes
+  entities: 
+    - group.automationDoors
+    - group.automationLights
+    - group.automationOther
+
+devicesTab:
+  name: Devices
+  view: yes
+  entities:
+    - group.all_devices
+
+camerasTab:
+  name: Cameras
+  view: yes
+  entities:
+    - camera.amcrest_camera
+    - camera.foscamcam
+    - camera.picamcam
+
