@@ -90,11 +90,11 @@ tts:
 # Cloud
 cloud:
 
-sensor: !include sensors.yaml
+automation: !include_dir_merge_list automations
 group: !include groups.yaml
-automation: !include automations.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
+sensor: !include_dir_list sensors
 zone: !include zones.yaml
 
 amcrest:
@@ -126,8 +126,17 @@ zwave:
   device_config: !include zwave_device_config.yaml
   debug: true
 
+media_player:
+  - platform: onkyo
+    host: 192.168.1.20
+    name: Onkyo TX-8050
+    sources:
+      fm: 'FM'
+      am: 'AM'
+      dlna: 'DLNA'
+      internet-radio: 'NET'
+
 alarm_control_panel:
   - platform: manual
     name: home_alarm
     code: !secret alarm_code
-    

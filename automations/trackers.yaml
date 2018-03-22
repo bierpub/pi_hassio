@@ -1,0 +1,11 @@
+- id: email_jeff_arrive_home
+  alias: 'Email Jeff arrive Home'
+  trigger:
+    platform: zone
+    entity_id: device_tracker.jeff_pixel
+    zone: zone.Home
+    event: enter
+  action:
+    - service: notify.emailjeff
+      data:
+        message: "Welcome home Jeff!"

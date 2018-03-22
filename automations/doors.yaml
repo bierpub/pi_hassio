@@ -1,0 +1,116 @@
+- id: sun_room_door_open
+  alias: "Sun Room Door Open"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.sun_room_door_alarm_level
+    from: "0"
+    to: "255"
+  condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
+  action:
+#    - service: notify.emailjeff
+#      data_template:
+#        title: 'Home Assistant Notification'
+#        message: "Sun Room Door is open!"
+#        data:
+#          push:
+#            category: camera
+#          entity_id: camera.amcrest_camera
+    - service: notify.ios_rachel_iphone
+      data:
+        title: 'Sun Room Door is Open'
+        message: 'Someone opened the Sun Room Door! at {{now().strftime("%H:%M:%S")}}'
+    - service: notify.mypushbullet
+      data:
+        title: 'Sun Room Door Open'
+        message: 'The Sun Room Door was opened! at {{now().strftime("%H:%M:%S")}}'
+
+- id: front_door_open
+  alias: "Front Door Open"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.front_door_alarm_level
+    from: "0"
+    to: "255"
+  condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Front Door Open'
+        message: 'The Front Door was opened! at {{now().strftime("%H:%M:%S")}}'
+
+- id: den_door_open
+  alias: "Den Door Open"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.den_door_alarm_level
+    from: "0"
+    to: "255"
+  condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Den Door Open'
+        message: 'The Den Door was opened! at {{now().strftime("%H:%M:%S")}}'
+
+- id: garage_entry_open
+  alias: "Garage Entry Open"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.garage_entry_alarm_level
+    from: "0"
+    to: "255"
+  condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Garage Entry Door Open'
+        message: 'The Garage Entry Door was opened! at {{now().strftime("%H:%M:%S")}}'
+
+- id: test_door_open
+  alias: "Test Door Open"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.test_door_alarm_level
+    from: "0"
+    to: "255"
+  condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Test Door Open'
+        message: 'The Test Door was opened! at {{now().strftime("%H:%M:%S")}}'

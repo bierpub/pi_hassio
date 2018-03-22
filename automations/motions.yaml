@@ -1,0 +1,14 @@
+- id: sun_room_camera_motion
+  alias: "Sun Room Camera Motion"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.amcrest_camera_motion_detected
+    from: "False"
+    to: "True"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Motion Detected in Sum Room'
+        message: 'Motion Detected in Sun Room! at {{now().strftime("%H:%M:%S")}}'
+
