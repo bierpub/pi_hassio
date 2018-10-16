@@ -1,0 +1,54 @@
+
+- id: fibaro_basement_flood_water_alert
+  alias: "Fibaro Basement Flood Water Alert"
+  trigger:
+    platform: state
+    entity_id: 
+      - binary_sensor.fibaro_basement_flood
+    from: "off"
+    to: "on"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Flood Alert in Basement'
+        message: 'Flood Alert in the basement! at {{now().strftime("%H:%M:%S")}}'
+
+- id: fibaro_basement_flood_tamper
+  alias: "Fibaro Basement Flood Tamper"
+  trigger:
+    platform: state
+    entity_id: 
+      - binary_sensor.fibaro_basement_general
+    from: "off"
+    to: "on"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Flood Sensor Tampered with in Basement'
+        message: 'Flood Sensor Tampered in the basement! at {{now().strftime("%H:%M:%S")}}'
+
+- id: fibaro_basement_temp_hot
+  alias: "Fibaro Basement Temp Hot"
+  trigger:
+    platform: numeric_state
+    entity_id: 
+     - sensor.fibaro_basement_temperature
+    above: 95
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Flood Sensor Temp Hot in Basement'
+        message: 'Flood Sensor Temp is Hot in basement! at {{now().strftime("%H:%M:%S")}}'
+
+- id: fibaro_basement_temp_cold
+  alias: "Fibaro Basement Temp Cold"
+  trigger:
+    platform: numeric_state
+    entity_id: 
+     - sensor.fibaro_basement_temperature
+    below: 50
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Flood Sensor Temp Cold in Basement'
+        message: 'Flood Sensor Temp is Cold in basement! at {{now().strftime("%H:%M:%S")}}'

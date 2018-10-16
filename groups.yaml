@@ -14,6 +14,7 @@ lights:
     - switch.front_light_switch
     - light.sun_bench_light_level
     - light.sun_outer_light_level
+    - light.denled
 
 automationLights:
   name: Light Automations
@@ -36,6 +37,14 @@ automationOther:
     - automation.email_jeff_arrive_home
     - automation.email_rachel_arrive_home
     - automation.sun_room_camera_motion
+
+automationFibaro:
+  name: Fibaro Automations
+  entities:
+    - automation.fibaro_basement_flood_water_alert
+    - automation.fibaro_basement_flood_tamper
+    - automation.fibaro_basement_temp_hot
+    - automation.fibaro_basement_temp_cold
     
 devicePhones:
   name: Phones
@@ -45,6 +54,22 @@ devicePhones:
     - device_tracker.404e362264d2
     - device_tracker.rachelsiphone
 
+fibaroFlood:
+  name: Fibaro Flood Sensor
+  entities:
+    - binary_sensor.fibaro_basement_flood
+    - binary_sensor.fibaro_basement_general
+    - binary_sensor.fibaro_basement_sensor
+    - sensor.fibaro_basement_temperature
+    
+zoneminderSwitches:
+  name: Zoneminder Switches
+  entities:
+    - switch.amcrest_state
+    - switch.doublezero_state
+    - switch.foscam_state
+    - switch.zeropi_state
+    
 ############################################################
 
 doorsTab:
@@ -52,6 +77,7 @@ doorsTab:
   view: yes
   entities:
     - group.doorbox
+    - group.fibaroFlood
     
 lightsTab:
   name: Lights
@@ -65,6 +91,7 @@ automationsTab:
   entities: 
     - group.automationDoors
     - group.automationLights
+    - group.automationFibaro
     - group.automationOther
 
 devicesTab:
@@ -82,4 +109,4 @@ camerasTab:
     - camera.foscamcam
     - camera.zeropicam
     - camera.doublezerocam
-
+    - group.zoneminderSwitches

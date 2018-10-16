@@ -1,0 +1,4 @@
+platform: zoneminder
+monitored_conditions:
+- all
+  

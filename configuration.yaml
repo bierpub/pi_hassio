@@ -38,6 +38,9 @@ http:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
 
+# Optional, allows Home Assistant developers to focus on popular components.
+# include_used_components: true
+  
 ifttt:
   key: !secret ifttt_key
 
@@ -125,6 +128,7 @@ camera:
   - platform: mjpeg
     name: doublezerocam
     mjpeg_url: http://192.168.1.95:8081
+#  - platform: zoneminder
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -147,3 +151,39 @@ alarm_control_panel:
   - platform: manual
     name: home_alarm
     code: !secret alarm_code
+
+#google_assistant:
+#  project_id: !secret google_asst_project_id
+#  client_id: !secret google_asst_client_id
+#  access_token: !secret google_asst_access_token
+#  agent_user_id: !secret google_asst_agent_user_id
+#  api_key: !secret google_asst_api_key
+#  exposed_domains:
+#    - switch
+#    - light
+#    - group
+#  entity_config:
+#    switch.dining_light_switch:
+#      name: Dining Light
+#      type: light
+#      room: Dining Room
+#    light.sun_bench_light_level:
+#      name: Sun Bench Light
+#      room: Sun Room
+#    light.sun_outer_light_level:
+#      name: Sun Outer Light
+#      room: Sun Room
+
+light:
+  - platform: flux_led
+    devices: 
+      192.168.1.31:
+        name: DenLED
+
+zoneminder:
+  host: 192.168.1.200
+
+switch:
+  - platform: zoneminder
+    command_on: Modect
+    command_off: Monitor
