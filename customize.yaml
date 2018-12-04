@@ -4,3 +4,10 @@
     hidden: false
 # group.all_scripts:
 #    hidden: false
+
+  cover.volvo:
+    friendly_name: Volvo
+    entity_picture: /local/volvo.jpg
+  sensor.garage_car_present:
+    icon: mdi:car
+

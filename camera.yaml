@@ -1,0 +1,24 @@
+- platform: amcrest
+  name: amcrestCam
+  host: 192.168.1.202
+  username: !secret amcrest_username
+  password: !secret amcrest_password
+- platform: mjpeg
+  name: foscamCam
+  mjpeg_url: !secret foscam_url
+- platform: mjpeg
+  name: zeropicam
+  mjpeg_url: http://192.168.1.94:8081
+- platform: mjpeg
+  name: doublezerocam
+  mjpeg_url: http://192.168.1.95:8081
+- platform: ffmpeg
+  name: hikrearcam
+  input: !secret hikrearcam_url
+  extra_arguments: -vf scale=640:360
+#- platform: onvif
+#  name: hikrearcam
+#  host: 192.168.1.203
+#  username: !secret hikrearcam_username
+#  password: !secret hikrearcam_password
+#- platform: zoneminder

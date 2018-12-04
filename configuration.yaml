@@ -16,6 +16,12 @@ homeassistant:
 # Show links to resources in log and frontend
 #introduction:
 
+# Discover some devices automatically
+#discovery: false
+
+#Show Hass.io tab
+hassio:
+
 # Enables the frontend
 frontend:
 
@@ -44,12 +50,12 @@ updater:
 ifttt:
   key: !secret ifttt_key
 
-mqtt:
-  broker: localhost
-  port: 1883
-  client_id: home-assistant-9
-  username: !secret mqtt_username
-  password: !secret mqtt_password
+#mqtt:
+#  broker: localhost
+#  port: 1883
+#  client_id: home-assistant-9
+#  username: !secret mqtt_username
+#  password: !secret mqtt_password
 
 ios:
   push:
@@ -71,9 +77,6 @@ device_tracker:
     host: 192.168.1.1
     username: !secret ddwrt_username
     password: !secret ddwrt_password
-
-# Discover some devices automatically
-discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -98,6 +101,7 @@ tts:
 cloud:
 
 automation: !include_dir_merge_list automations
+camera: !include camera.yaml
 group: !include groups.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
@@ -113,23 +117,25 @@ amcrest:
 #      - sdcard
 #      - ptz_preset
 
-camera:
-  - platform: amcrest
-    name: amcrestCam
-    host: 192.168.1.202
-    username: !secret amcrest_username
-    password: !secret amcrest_password
-  - platform: mjpeg
-    name: foscamCam
-    mjpeg_url: !secret foscam_url
-  - platform: mjpeg
-    name: zeropicam
-    mjpeg_url: http://192.168.1.94:8081
-  - platform: mjpeg
-    name: doublezerocam
-    mjpeg_url: http://192.168.1.95:8081
-#  - platform: zoneminder
 
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+  
+#switch:
+#  - platform: zoneminder
+#    command_on: Modect
+#    command_off: Monitor
+#  - platform: hikvisioncam
+#    host: 192.168.1.203
+#    username: !secret hikrearcam_username
+#    password: !secret hikrearcam_password
+    
+binary_sensor:
+  - platform: hikvision
+    host: 192.168.1.203
+    username: !secret hikrearcam_username
+    password: !secret hikrearcam_password
+        
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
@@ -146,7 +152,10 @@ media_player:
       am: 'AM'
       dlna: 'DLNA'
       internet-radio: 'NET'
-
+  - platform: webostv
+    name: Living Room TV
+    host: 192.168.1.21
+    
 alarm_control_panel:
   - platform: manual
     name: home_alarm
@@ -158,21 +167,6 @@ alarm_control_panel:
 #  access_token: !secret google_asst_access_token
 #  agent_user_id: !secret google_asst_agent_user_id
 #  api_key: !secret google_asst_api_key
-#  exposed_domains:
-#    - switch
-#    - light
-#    - group
-#  entity_config:
-#    switch.dining_light_switch:
-#      name: Dining Light
-#      type: light
-#      room: Dining Room
-#    light.sun_bench_light_level:
-#      name: Sun Bench Light
-#      room: Sun Room
-#    light.sun_outer_light_level:
-#      name: Sun Outer Light
-#      room: Sun Room
 
 light:
   - platform: flux_led
@@ -180,10 +174,15 @@ light:
       192.168.1.31:
         name: DenLED
 
-zoneminder:
-  host: 192.168.1.200
+#zoneminder:
+#  host: 192.168.1.200
 
-switch:
-  - platform: zoneminder
-    command_on: Modect
-    command_off: Monitor
+cover:
+  platform: opengarage
+  covers:
+      garage:
+        host: 192.168.1.32
+        name: volvo
+        device_key: !secret openGarageKey
+
+

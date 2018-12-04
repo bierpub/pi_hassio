@@ -17,3 +17,16 @@
   action:
     - service: switch.turn_off
       entity_id: switch.front_light_switch
+
+- id: garage_entry_mudroom_light_on
+  alias: "Garage Entry Mudroom Light On"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.garage_entry_alarm_level
+    from: "0"
+    to: "255"
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.mudroom_switch_on
+

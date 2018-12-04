@@ -10,7 +10,7 @@ doorbox:
 lights:
   name: Lights
   entities:
-    - switch.dining_light_switch
+    - switch.mudroom_light_switch
     - switch.front_light_switch
     - light.sun_bench_light_level
     - light.sun_outer_light_level
@@ -21,6 +21,9 @@ automationLights:
   entities:
     - automation.front_light_on_sunset
     - automation.front_light_off_sunrise
+    - automation.garage_entry_mudroom_light_on
+    - script.mudroom_switch_on
+    - script.mudroom_switch_off
 
 automationDoors:
   name: Door Automations
@@ -60,7 +63,7 @@ fibaroFlood:
     - binary_sensor.fibaro_basement_flood
     - binary_sensor.fibaro_basement_general
     - binary_sensor.fibaro_basement_sensor
-    - sensor.fibaro_basement_temperature
+    - sensor.fibaro_basement_temperature_2
     
 zoneminderSwitches:
   name: Zoneminder Switches
@@ -70,12 +73,20 @@ zoneminderSwitches:
     - switch.foscam_state
     - switch.zeropi_state
     
+garage:
+    name: Garage
+    entities:
+      - cover.volvo
+      - sensor.garage_status
+      - sensor.garage_car_present
+      
 ############################################################
 
 doorsTab:
   name: Doors
   view: yes
   entities:
+    - group.garage
     - group.doorbox
     - group.fibaroFlood
     
@@ -109,4 +120,5 @@ camerasTab:
     - camera.foscamcam
     - camera.zeropicam
     - camera.doublezerocam
+    - camera.hikrearcam
     - group.zoneminderSwitches

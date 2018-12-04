@@ -1,0 +1,22 @@
+mudroom_switch_on:
+  alias: 'Mudroom Switch On'
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.mudroom_switch_off
+    - service: switch.turn_on
+      data:
+         entity_id: switch.mudroom_light_switch
+    # Set new timer
+    - service: script.turn_on
+      data:
+        entity_id: script.mudroom_switch_off
+
+mudroom_switch_off:
+  alias: 'Mudroom Switch Off'
+  sequence:
+    - delay:
+        minutes: 20
+    - service: switch.turn_off
+      data:
+        entity_id: switch.mudroom_light_switch

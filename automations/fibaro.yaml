@@ -32,7 +32,7 @@
   trigger:
     platform: numeric_state
     entity_id: 
-     - sensor.fibaro_basement_temperature
+     - sensor.fibaro_basement_temperature_2
     above: 95
   action:
     - service: notify.mypushbullet
@@ -45,7 +45,7 @@
   trigger:
     platform: numeric_state
     entity_id: 
-     - sensor.fibaro_basement_temperature
+     - sensor.fibaro_basement_temperature_2
     below: 50
   action:
     - service: notify.mypushbullet
