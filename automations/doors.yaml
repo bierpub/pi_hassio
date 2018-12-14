@@ -10,7 +10,7 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
       - condition: template
         value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
       - condition: template
@@ -45,7 +45,7 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
       - condition: template
         value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
       - condition: template
@@ -68,7 +68,7 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
       - condition: template
         value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
       - condition: template
@@ -91,7 +91,7 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
       - condition: template
         value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
       - condition: template
@@ -114,7 +114,7 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.jeff_pixel') != 'home' }}"
+        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
       - condition: template
         value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
       - condition: template
@@ -124,3 +124,4 @@
       data:
         title: 'Test Door Open'
         message: 'The Test Door was opened! at {{now().strftime("%H:%M:%S")}}'
+

@@ -40,6 +40,8 @@ automationOther:
     - automation.email_jeff_arrive_home
     - automation.email_rachel_arrive_home
     - automation.sun_room_camera_motion
+    - input_boolean.cooper_door_button
+    - automation.cooper_door_motion
 
 automationFibaro:
   name: Fibaro Automations
@@ -52,7 +54,7 @@ automationFibaro:
 devicePhones:
   name: Phones
   entities:
-    - device_tracker.jeff_pixel
+    - device_tracker.fa75j0303575
     - device_tracker.rachel_iphone
     - device_tracker.404e362264d2
     - device_tracker.rachelsiphone
@@ -74,29 +76,56 @@ zoneminderSwitches:
     - switch.zeropi_state
     
 garage:
-    name: Garage
-    entities:
-      - cover.volvo
-      - sensor.garage_status
-      - sensor.garage_car_present
+  name: Garage
+  entities:
+    - cover.volvo
+    - sensor.garage_status
+    - sensor.garage_car_present
+      
+motion:
+  name: Motion
+  entities:
+    - sensor.amcrest_camera_motion_detected
+    - binary_sensor.hikrearcam_motion
+    - binary_sensor.hikrearcam_field_detection
+      
+media:
+  name: Media
+  entities:
+    - media_player.kitchen_home
+    - media_player.living_room_speaker
+    - media_player.living_room_tv
+    - media_player.onkyo_tx8050
       
 ############################################################
 
-doorsTab:
+default_view:
+  name: Home
+  view: yes
+  entities:
+    - sun.sun
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_icon
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_wind_bearing
+    - alarm_control_panel.alarm_panel
+    - group.garage
+    - group.lights
+    
+
+doors_view:
   name: Doors
   view: yes
   entities:
     - group.garage
     - group.doorbox
-    - group.fibaroFlood
     
-lightsTab:
-  name: Lights
-  view: Yes
-  entities:
-    - group.lights
-    
-automationsTab:
+automations_view:
   name: Automations
   view: Yes
   entities: 
@@ -105,14 +134,17 @@ automationsTab:
     - group.automationFibaro
     - group.automationOther
 
-devicesTab:
+devices_view:
   name: Devices
   view: yes
   entities:
     - group.devicePhones
-    - group.all_devices
-
-camerasTab:
+    - group.motion
+    - group.media
+    - group.fibaroFlood
+#    - group.all_devices
+    
+cameras_view:
   name: Cameras
   view: yes
   entities:

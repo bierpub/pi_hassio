@@ -2,7 +2,7 @@
   alias: 'Email Jeff arrive Home'
   trigger:
     platform: zone
-    entity_id: device_tracker.jeff_pixel
+    entity_id: device_tracker.fa75j0303575
     zone: zone.Home
     event: enter
   action:

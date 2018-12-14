@@ -1,13 +1,12 @@
-#  group.all_automations:
-#    hidden: false
+  group.all_automations:
+    hidden: true
   group.all_devices:
-    hidden: false
-# group.all_scripts:
-#    hidden: false
+    hidden: true
+  group.all_scripts:
+    hidden: true
 
   cover.volvo:
     friendly_name: Volvo
     entity_picture: /local/volvo.jpg
   sensor.garage_car_present:
     icon: mdi:car
-

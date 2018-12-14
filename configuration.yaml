@@ -32,7 +32,7 @@ http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+  base_url: !secret baseurl
   login_attempts_threshold: 4
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
@@ -72,7 +72,6 @@ ios:
 
 device_tracker:
   - platform: gpslogger
-    password: !secret gpslogger_password
   - platform: ddwrt
     host: 192.168.1.1
     username: !secret ddwrt_username
@@ -97,8 +96,10 @@ sun:
 tts:
   - platform: google
 
+cast:
+
 # Cloud
-cloud:
+#cloud:
 
 automation: !include_dir_merge_list automations
 camera: !include camera.yaml
@@ -158,15 +159,12 @@ media_player:
     
 alarm_control_panel:
   - platform: manual
-    name: home_alarm
+    name: Alarm Panel
     code: !secret alarm_code
 
-#google_assistant:
-#  project_id: !secret google_asst_project_id
-#  client_id: !secret google_asst_client_id
-#  access_token: !secret google_asst_access_token
-#  agent_user_id: !secret google_asst_agent_user_id
-#  api_key: !secret google_asst_api_key
+google_assistant:
+  project_id: !secret google_asst_project_id
+  api_key: !secret google_asst_api_key
 
 light:
   - platform: flux_led
@@ -185,4 +183,9 @@ cover:
         name: volvo
         device_key: !secret openGarageKey
 
+input_boolean:
+  cooper_door_button:
+    name: Cooper Door Button
+    initial: off
+    icon: mdi:dog-side
 

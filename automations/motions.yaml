@@ -12,3 +12,30 @@
         title: 'Motion Detected in Sum Room'
         message: 'Motion Detected in Sun Room! at {{now().strftime("%H:%M:%S")}}'
 
+- id: cooper_door_motion
+  alias: "Cooper Door Motion"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hikrearcam_field_detection
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.cooper_door_button
+    state: 'on'
+  action:
+    - service: notify.ios_rachel_iphone
+      data:
+        title: "Back Door Motion"
+        message: 'Cooper is at the Back Door! at {{now().strftime("%H:%M:%S")}}'
+    - service: notify.mypushbullet
+      data:
+        title: "Back Door Motion"
+        message: "Cooper is at the Back Door!"
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.cooper_door_button
+    - service: tts.google_say
+      entity_id: media_player.kitchen_home
+      data:
+        message: 'Cooper is at the back door!'
+
