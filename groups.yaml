@@ -33,6 +33,22 @@ automationDoors:
     - automation.den_door_open
     - automation.garage_entry_open
     - automation.test_door_open
+    
+automationGarage:
+  name: Garage Automations
+  entities:
+    - automation.garage_opened
+    - automation.garage_closed
+    - automation.garage_open_long
+    - automation.garage_open_late
+    - automation.garage_open_midnight
+
+automationDevice:
+  name: Device Automations
+  entities:
+    - automation.tv_on_late
+    - automation.onkyo_on_late
+    - automation.chromecast_on_late
         
 automationOther:
   name: Other Automations
@@ -130,8 +146,10 @@ automations_view:
   view: Yes
   entities: 
     - group.automationDoors
+    - group.automationGarage
     - group.automationLights
     - group.automationFibaro
+    - group.automationDevice
     - group.automationOther
 
 devices_view:

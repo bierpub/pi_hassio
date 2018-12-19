@@ -125,3 +125,73 @@
         title: 'Test Door Open'
         message: 'The Test Door was opened! at {{now().strftime("%H:%M:%S")}}'
 
+- id: garage_opened
+  alias: "Garage Opened"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.garage_status
+    to: "Open"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Garage Opened'
+        message: 'Garage opened now at {{now().strftime("%H:%M:%S")}}'
+
+- id: garage_closed
+  alias: "Garage Closed"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.garage_status
+    to: "Closed"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Garage Closed'
+        message: 'Garage closed now at {{now().strftime("%H:%M:%S")}}'
+
+- id: garage_open_long
+  alias: "Garage Open Long"
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.garage_status
+    to: "Open"
+    for:
+      minutes: 30
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Garage Open for 30'
+        message: 'Garage has been open for 30 minutes'
+
+- id: garage_open_late
+  alias: "Garage Open Late"
+  trigger:
+    platform: time
+    at: '22:30:00'
+  condition:
+    - condition: state
+      entity_id: sensor.garage_status
+      state: "Open"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Garage Open at 10:30pm'
+        message: 'Garage is still open at 10:30pm'
+
+- id: garage_open_midnight
+  alias: "Garage Open Midnight"
+  trigger:
+    platform: time
+    at: '00:00:00'
+  condition:
+    - condition: state
+      entity_id: sensor.garage_status
+      state: "Open"
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: 'Garage Open at Midnight'
+        message: 'Garage is still open at Midnight!'
