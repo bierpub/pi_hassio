@@ -1,11 +1,29 @@
-- id: email_jeff_arrive_home
-  alias: 'Email Jeff arrive Home'
+- id: notify_jeff_arrive_home
+  alias: 'Notify Jeff arrive Home'
   trigger:
     platform: zone
     entity_id: device_tracker.fa75j0303575
     zone: zone.Home
     event: enter
   action:
-    - service: notify.emailjeff
+    - service: notify.ios_rachel_iphone
       data:
-        message: "Welcome home Jeff!"
+        title: "Jeff has Arrived Home"
+        message: 'Jeff has Arrived Home at {{now().strftime("%H:%M:%S")}}'
+    - service: notify.mypushbullet
+      data:
+        title: "Jeff has Arrived Home"
+        message: 'Jeff has Arrived Home at {{now().strftime("%H:%M:%S")}}'
+
+- id: notify_rachel_arrive_home
+  alias: 'Notify Rachel arrive Home'
+  trigger:
+    platform: state
+    entity_id: device_tracker.rachelsiphone
+    from: 'not_home'
+    to: 'home'
+  action:
+    - service: notify.mypushbullet
+      data:
+        title: "Rachel has Arrived Home"
+        message: 'Rachel has Arrived Home at {{now().strftime("%H:%M:%S")}}'

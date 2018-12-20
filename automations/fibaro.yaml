@@ -11,7 +11,7 @@
     - service: notify.mypushbullet
       data:
         title: 'Flood Alert in Basement'
-        message: 'Flood Alert in the basement! at {{now().strftime("%H:%M:%S")}}'
+        message: 'Flood Alert in the basement at {{now().strftime("%H:%M:%S")}}'
 
 - id: fibaro_basement_flood_tamper
   alias: "Fibaro Basement Flood Tamper"
@@ -25,7 +25,7 @@
     - service: notify.mypushbullet
       data:
         title: 'Flood Sensor Tampered with in Basement'
-        message: 'Flood Sensor Tampered in the basement! at {{now().strftime("%H:%M:%S")}}'
+        message: 'Flood Sensor Tampered in the basement at {{now().strftime("%H:%M:%S")}}'
 
 - id: fibaro_basement_temp_hot
   alias: "Fibaro Basement Temp Hot"
@@ -38,7 +38,7 @@
     - service: notify.mypushbullet
       data:
         title: 'Flood Sensor Temp Hot in Basement'
-        message: 'Flood Sensor Temp is Hot in basement! at {{now().strftime("%H:%M:%S")}}'
+        message: 'Flood Sensor Temp is Hot in basement at {{now().strftime("%H:%M:%S")}}'
 
 - id: fibaro_basement_temp_cold
   alias: "Fibaro Basement Temp Cold"
@@ -51,4 +51,4 @@
     - service: notify.mypushbullet
       data:
         title: 'Flood Sensor Temp Cold in Basement'
-        message: 'Flood Sensor Temp is Cold in basement! at {{now().strftime("%H:%M:%S")}}'
+        message: 'Flood Sensor Temp is Cold in basement at {{now().strftime("%H:%M:%S")}}'

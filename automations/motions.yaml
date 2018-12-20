@@ -6,11 +6,28 @@
       - sensor.amcrest_camera_motion_detected
     from: "False"
     to: "True"
+  condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('device_tracker.rachelsiphone') != 'home' }}"
   action:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.amcrest_camera
+        filename: "/config/www/camera/sunroom_capture.jpg"
+    - delay:
+        seconds: 3
     - service: notify.mypushbullet
       data:
         title: 'Motion Detected in Sum Room'
-        message: 'Motion Detected in Sun Room! at {{now().strftime("%H:%M:%S")}}'
+        message: 'Motion Detected in Sun Room at {{now().strftime("%H:%M:%S")}}'
+        data:
+          file: /config/www/camera/sunroom_capture.jpg
 
 - id: cooper_door_motion
   alias: "Cooper Door Motion"
@@ -26,7 +43,7 @@
     - service: notify.ios_rachel_iphone
       data:
         title: "Back Door Motion"
-        message: 'Cooper is at the Back Door! at {{now().strftime("%H:%M:%S")}}'
+        message: 'Cooper is at the Back Door at {{now().strftime("%H:%M:%S")}}'
     - service: notify.mypushbullet
       data:
         title: "Back Door Motion"
