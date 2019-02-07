@@ -32,7 +32,7 @@ config:
 
 http:
   # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
+  # api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret baseurl
   login_attempts_threshold: 4
@@ -58,6 +58,10 @@ ifttt:
 #  client_id: home-assistant-9
 #  username: !secret mqtt_username
 #  password: !secret mqtt_password
+
+#mqtt:
+#  discovery: true
+#  discovery_prefix: homeassistant
 
 ios:
   push:
@@ -123,15 +127,18 @@ amcrest:
 
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
+
+zoneminder:
+  host: 192.168.1.200
+#  ssl: true
+#  verify_ssl: true
+  username: !secret zoneminder_username
+  password: !secret zoneminder_password
   
-#switch:
-#  - platform: zoneminder
-#    command_on: Modect
-#    command_off: Monitor
-#  - platform: hikvisioncam
-#    host: 192.168.1.203
-#    username: !secret hikrearcam_username
-#    password: !secret hikrearcam_password
+switch:
+  - platform: zoneminder
+    command_on: Modect
+    command_off: Monitor
     
 binary_sensor:
   - platform: hikvision
@@ -149,10 +156,11 @@ zwave:
 media_player:
   - platform: onkyo
     host: 192.168.1.20
-    name: Onkyo TX-8050
+    name: Onkyo
     sources:
       fm: 'FM'
       am: 'AM'
+      cd: 'Chromecast'
       dlna: 'DLNA'
       internet-radio: 'NET'
   - platform: webostv
@@ -162,7 +170,7 @@ media_player:
 alarm_control_panel:
   - platform: manual
     name: Alarm Panel
-    code: !secret alarm_code
+#    code: !secret alarm_code
 
 google_assistant:
   project_id: !secret google_asst_project_id
@@ -173,9 +181,6 @@ light:
     devices: 
       192.168.1.31:
         name: DenLED
-
-#zoneminder:
-#  host: 192.168.1.200
 
 cover:
   platform: opengarage
@@ -190,4 +195,15 @@ input_boolean:
     name: Cooper Door Button
     initial: off
     icon: mdi:dog-side
+
+climate:
+  platform: honeywell
+  username: !secret honeywell_username
+  password: !secret honeywell_password
+  region: 'us'
+  scan_interval: 900
+  away_temperature: 64
+  away_heat_temperature: 64
+  away_cool_temperature: 82
+
 

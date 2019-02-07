@@ -49,6 +49,8 @@ automationDevice:
     - automation.tv_on_late
     - automation.onkyo_on_late
     - automation.chromecast_on_late
+    - script.onkyo_chromecast_on
+    - script.onkyo_chromecast_off
         
 automationOther:
   name: Other Automations
@@ -111,7 +113,7 @@ media:
     - media_player.kitchen_home
     - media_player.living_room_speaker
     - media_player.living_room_tv
-    - media_player.onkyo_tx8050
+    - media_player.onkyo
       
 ############################################################
 
@@ -130,6 +132,7 @@ default_view:
     - sensor.dark_sky_wind_speed
     - sensor.dark_sky_wind_bearing
     - alarm_control_panel.alarm_panel
+    - climate.thermostat
     - group.garage
     - group.lights
     

@@ -1,0 +1,300 @@
+{
+    "data": {
+        "config": {
+            "title": "Windsor",
+            "views": [
+                {
+                    "badges": [
+                        "sensor.dark_sky_summary",
+                        "sensor.dark_sky_temperature",
+                        "sensor.dark_sky_apparent_temperature",
+                        "sensor.dark_sky_humidity",
+                        "sensor.dark_sky_cloud_coverage",
+                        "sensor.dark_sky_precip",
+                        "sensor.dark_sky_wind_speed",
+                        "sensor.dark_sky_wind_bearing",
+                        "sun.sun"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                "cover.volvo",
+                                "sensor.garage_status",
+                                "sensor.garage_car_present"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Garage",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "switch.mudroom_light_switch",
+                                "switch.front_light_switch",
+                                "light.sun_bench_light_level",
+                                "light.sun_outer_light_level",
+                                "light.denled"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "climate.thermostat"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Thermostat",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "alarm_control_panel.alarm_panel",
+                            "name": "Alarm",
+                            "type": "alarm-panel"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "alarm_control_panel.alarm_panel"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Alarm Status",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.onkyo",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room_speaker",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.kitchen_home",
+                            "type": "media-control"
+                        }
+                    ],
+                    "title": "Media"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "cover.volvo",
+                                "sensor.garage_status",
+                                "sensor.garage_car_present"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Garage",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.template_front_door",
+                                "sensor.template_sun_room_door",
+                                "sensor.template_den_door",
+                                "sensor.template_garage_entry",
+                                "sensor.template_test_door"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Doors",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "doors_view",
+                    "title": "Doors"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.fa75j0303575"
+                                },
+                                {
+                                    "entity": "device_tracker.rachel_iphone"
+                                },
+                                {
+                                    "entity": "device_tracker.404e362264d2"
+                                },
+                                {
+                                    "entity": "device_tracker.rachelsiphone"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Phones",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.amcrest_camera_motion_detected",
+                                "binary_sensor.hikrearcam_motion",
+                                "binary_sensor.hikrearcam_field_detection"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Motion",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "binary_sensor.fibaro_basement_flood",
+                                "binary_sensor.fibaro_basement_general",
+                                "binary_sensor.fibaro_basement_sensor",
+                                "sensor.fibaro_basement_temperature_2"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Fibaro Flood Sensor",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "devices_view",
+                    "title": "Devices"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "camera.amcrest_camera",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.foscamcam",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.zeropicam",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.doublezerocam",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.hikrearcam",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.amcrest_state"
+                                },
+                                {
+                                    "entity": "switch.doublezero_state"
+                                },
+                                {
+                                    "entity": "switch.foscam_state"
+                                },
+                                {
+                                    "entity": "switch.zeropi_state"
+                                },
+                                {
+                                    "entity": "switch.rearyard_state"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Zoneminder Switches",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "cameras_view",
+                    "title": "Cameras"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "automation.sun_room_door_open",
+                                "automation.front_door_open",
+                                "automation.den_door_open",
+                                "automation.garage_entry_open",
+                                "automation.test_door_open"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Door Automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "automation.garage_opened",
+                                "automation.garage_closed",
+                                "automation.garage_open_long",
+                                "automation.garage_open_late",
+                                "automation.garage_open_midnight"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Garage Automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "automation.front_light_on_sunset",
+                                "automation.front_light_off_sunrise",
+                                "automation.garage_entry_mudroom_light_on",
+                                "script.mudroom_switch_on",
+                                "script.mudroom_switch_off"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Light Automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "automation.fibaro_basement_flood_water_alert",
+                                "automation.fibaro_basement_flood_tamper",
+                                "automation.fibaro_basement_temp_hot",
+                                "automation.fibaro_basement_temp_cold"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Fibaro Automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "automation.tv_on_late",
+                                "automation.onkyo_on_late",
+                                "automation.chromecast_on_late",
+                                "script.onkyo_chromecast_on",
+                                "script.onkyo_chromecast_off"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Device Automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "automation.notify_jeff_arrive_home",
+                                "automation.notify_rachel_arrive_home",
+                                "automation.sun_room_camera_motion",
+                                "input_boolean.cooper_door_button",
+                                "automation.cooper_door_motion"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Other Automations",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "automations_view",
+                    "title": "Automations"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

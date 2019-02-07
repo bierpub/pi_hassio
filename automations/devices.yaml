@@ -17,10 +17,10 @@
     at: '02:22:00'
   condition:
     - condition: template
-      value_template: "{{ states('media_player.onkyo_tx8050') != 'off' }}"
+      value_template: "{{ states('media_player.onkyo') != 'off' }}"
   action:
     - service: media_player.turn_off
-      entity_id: media_player.onkyo_tx8050
+      entity_id: media_player.onkyo
 
 - id: chromecast_on_late
   alias: "Chromecast on Late"
