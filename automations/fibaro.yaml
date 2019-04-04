@@ -1,6 +1,7 @@
 
 - id: fibaro_basement_flood_water_alert
   alias: "Fibaro Basement Flood Water Alert"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
@@ -15,6 +16,7 @@
 
 - id: fibaro_basement_flood_tamper
   alias: "Fibaro Basement Flood Tamper"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
@@ -29,6 +31,7 @@
 
 - id: fibaro_basement_temp_hot
   alias: "Fibaro Basement Temp Hot"
+  initial_state: true
   trigger:
     platform: numeric_state
     entity_id: 
@@ -42,6 +45,7 @@
 
 - id: fibaro_basement_temp_cold
   alias: "Fibaro Basement Temp Cold"
+  initial_state: true
   trigger:
     platform: numeric_state
     entity_id: 

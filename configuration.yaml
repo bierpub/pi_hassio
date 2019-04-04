@@ -26,6 +26,7 @@ hassio:
 
 # Enables the frontend
 frontend:
+  themes: !include_dir_merge_named themes
 
 # Enables configuration UI
 config:
@@ -103,6 +104,8 @@ tts:
   - platform: google
 
 cast:
+system_health:
+person:
 
 # Cloud
 #cloud:
@@ -124,7 +127,6 @@ amcrest:
 #      - sdcard
 #      - ptz_preset
 
-
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
 
@@ -145,7 +147,11 @@ binary_sensor:
     host: 192.168.1.203
     username: !secret hikrearcam_username
     password: !secret hikrearcam_password
-        
+  - platform: hikvision
+    host: 192.168.1.204
+    username: !secret hikrearcam_username
+    password: !secret hikrearcam_password        
+
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
@@ -195,6 +201,10 @@ input_boolean:
     name: Cooper Door Button
     initial: off
     icon: mdi:dog-side
+  driveway_button:
+    name: Driveway Button
+    initial: off
+    icon: mdi:car-estate
 
 climate:
   platform: honeywell
@@ -206,4 +216,13 @@ climate:
   away_heat_temperature: 64
   away_cool_temperature: 82
 
+fastdotcom:
+  scan_interval:
+    hours: 3
 
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+
+
+    

@@ -1,5 +1,6 @@
 - id: tv_on_late
   alias: "TV on Late"
+  initial_state: true
   trigger:
     platform: time
     at: '02:22:00'
@@ -12,6 +13,7 @@
 
 - id: onkyo_on_late
   alias: "Onkyo on Late"
+  initial_state: true
   trigger:
     platform: time
     at: '02:22:00'
@@ -24,6 +26,7 @@
 
 - id: chromecast_on_late
   alias: "Chromecast on Late"
+  initial_state: true
   trigger:
     platform: time
     at: '02:22:00'

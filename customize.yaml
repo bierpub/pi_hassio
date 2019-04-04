@@ -7,6 +7,6 @@
 
   cover.volvo:
     friendly_name: Volvo
-    entity_picture: /local/volvo.jpg
+    entity_picture: /local/volvo.png
   sensor.garage_car_present:
     icon: mdi:car

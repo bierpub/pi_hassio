@@ -18,9 +18,15 @@
                     "cards": [
                         {
                             "entities": [
-                                "cover.volvo",
-                                "sensor.garage_status",
-                                "sensor.garage_car_present"
+                                {
+                                    "entity": "cover.volvo"
+                                },
+                                {
+                                    "entity": "sensor.garagedoor_status"
+                                },
+                                {
+                                    "entity": "sensor.garage_car_present"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Garage",
@@ -62,6 +68,54 @@
                             "show_header_toggle": false,
                             "title": "Alarm Status",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "input_boolean.cooper_door_button",
+                            "hold_action": {
+                                "action": "more-info"
+                            },
+                            "name": "Cooper Door Button",
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "input_boolean.turn_on"
+                            },
+                            "type": "entity-button"
+                        },
+                        {
+                            "entity": "input_boolean.driveway_button",
+                            "hold_action": {
+                                "action": "none"
+                            },
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "input_boolean.turn_on"
+                            },
+                            "type": "entity-button"
+                        },
+                        {
+                            "columns": 2,
+                            "entities": [
+                                {
+                                    "entity": "switch.front_light_switch"
+                                },
+                                {
+                                    "entity": "switch.mudroom_light_switch"
+                                },
+                                {
+                                    "entity": "light.sun_bench_light_level"
+                                },
+                                {
+                                    "entity": "light.sun_outer_light_level"
+                                },
+                                {
+                                    "entity": "light.denled"
+                                }
+                            ],
+                            "show_name": true,
+                            "show_state": true,
+                            "theme": "Backend-selected",
+                            "title": "Lights",
+                            "type": "glance"
                         }
                     ],
                     "path": "default_view",
@@ -70,6 +124,79 @@
                 {
                     "badges": [],
                     "cards": [
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "script.onkyo_fm_preset1",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.onkyo_fm_preset1"
+                                    }
+                                },
+                                {
+                                    "entity": "script.onkyo_fm_preset2",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.onkyo_fm_preset2"
+                                    }
+                                },
+                                {
+                                    "entity": "script.onkyo_fm_preset3",
+                                    "entity_picture": "/local/jeff_pixel.png",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.onkyo_fm_preset3"
+                                    }
+                                },
+                                {
+                                    "entity": "script.onkyo_fm_preset4",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.onkyo_fm_preset4"
+                                    }
+                                },
+                                {
+                                    "entity": "script.onkyo_fm_preset5",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.onkyo_fm_preset5"
+                                    }
+                                },
+                                {
+                                    "entity": "script.onkyo_fm_preset6",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.onkyo_fm_preset6"
+                                    }
+                                },
+                                {
+                                    "entity": "script.onkyo_fm_preset7",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.onkyo_fm_preset7"
+                                    }
+                                },
+                                {
+                                    "entity": "script.onkyo_fm_preset8",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.onkyo_fm_preset8"
+                                    }
+                                },
+                                {
+                                    "entity": "script.chromecast_on",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.chromecast_on"
+                                    }
+                                }
+                            ],
+                            "show_name": true,
+                            "show_state": false,
+                            "title": "Radio Stations",
+                            "type": "glance"
+                        },
                         {
                             "entity": "media_player.onkyo",
                             "type": "media-control"
@@ -94,9 +221,15 @@
                     "cards": [
                         {
                             "entities": [
-                                "cover.volvo",
-                                "sensor.garage_status",
-                                "sensor.garage_car_present"
+                                {
+                                    "entity": "cover.volvo"
+                                },
+                                {
+                                    "entity": "sensor.garagedoor_status"
+                                },
+                                {
+                                    "entity": "sensor.garage_car_present"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Garage",
@@ -134,6 +267,12 @@
                                 },
                                 {
                                     "entity": "device_tracker.rachelsiphone"
+                                },
+                                {
+                                    "entity": "person.jeff"
+                                },
+                                {
+                                    "entity": "person.rachel"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -142,9 +281,21 @@
                         },
                         {
                             "entities": [
-                                "sensor.amcrest_camera_motion_detected",
-                                "binary_sensor.hikrearcam_motion",
-                                "binary_sensor.hikrearcam_field_detection"
+                                {
+                                    "entity": "sensor.amcrest_camera_motion_detected"
+                                },
+                                {
+                                    "entity": "binary_sensor.hikrearcam_motion"
+                                },
+                                {
+                                    "entity": "binary_sensor.hikrearcam_field_detection"
+                                },
+                                {
+                                    "entity": "binary_sensor.hikdriveway_motion"
+                                },
+                                {
+                                    "entity": "binary_sensor.hikdriveway_field_detection"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Motion",
@@ -160,6 +311,17 @@
                             "show_header_toggle": false,
                             "title": "Fibaro Flood Sensor",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "sensor.fast_com_download",
+                            "hold_action": {
+                                "action": "call-service",
+                                "service": "fastdotcom.speedtest"
+                            },
+                            "tap_action": {
+                                "action": "more-info"
+                            },
+                            "type": "entity-button"
                         }
                     ],
                     "path": "devices_view",
@@ -170,40 +332,53 @@
                     "cards": [
                         {
                             "entity": "camera.amcrest_camera",
+                            "name": "Sunroom",
                             "type": "picture-entity"
                         },
                         {
                             "entity": "camera.foscamcam",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.zeropicam",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.doublezerocam",
+                            "name": "Garage",
                             "type": "picture-entity"
                         },
                         {
                             "entity": "camera.hikrearcam",
+                            "name": "Rear Yard",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.hikdriveway",
+                            "name": "Driveway",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.doublezerocam",
+                            "name": "Office",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.zeropicam",
+                            "name": "Front Yard",
                             "type": "picture-entity"
                         },
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.amcrest_state"
+                                    "entity": "switch.garage_state"
                                 },
                                 {
-                                    "entity": "switch.doublezero_state"
+                                    "entity": "switch.frontyard_state"
                                 },
                                 {
-                                    "entity": "switch.foscam_state"
+                                    "entity": "switch.den_state"
                                 },
                                 {
-                                    "entity": "switch.zeropi_state"
+                                    "entity": "switch.driveway_state"
                                 },
                                 {
                                     "entity": "switch.rearyard_state"
+                                },
+                                {
+                                    "entity": "switch.sunroom_state"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -266,11 +441,15 @@
                         },
                         {
                             "entities": [
-                                "automation.tv_on_late",
-                                "automation.onkyo_on_late",
-                                "automation.chromecast_on_late",
-                                "script.onkyo_chromecast_on",
-                                "script.onkyo_chromecast_off"
+                                {
+                                    "entity": "automation.tv_on_late"
+                                },
+                                {
+                                    "entity": "automation.onkyo_on_late"
+                                },
+                                {
+                                    "entity": "automation.chromecast_on_late"
+                                }
                             ],
                             "show_header_toggle": true,
                             "title": "Device Automations",
@@ -278,11 +457,27 @@
                         },
                         {
                             "entities": [
-                                "automation.notify_jeff_arrive_home",
-                                "automation.notify_rachel_arrive_home",
-                                "automation.sun_room_camera_motion",
-                                "input_boolean.cooper_door_button",
-                                "automation.cooper_door_motion"
+                                {
+                                    "entity": "automation.notify_jeff_arrive_home"
+                                },
+                                {
+                                    "entity": "automation.notify_rachel_arrive_home"
+                                },
+                                {
+                                    "entity": "automation.sun_room_camera_motion"
+                                },
+                                {
+                                    "entity": "input_boolean.cooper_door_button"
+                                },
+                                {
+                                    "entity": "automation.cooper_door_motion"
+                                },
+                                {
+                                    "entity": "input_boolean.driveway_button"
+                                },
+                                {
+                                    "entity": "automation.driveway_motion"
+                                }
                             ],
                             "show_header_toggle": true,
                             "title": "Other Automations",
@@ -291,6 +486,21 @@
                     ],
                     "path": "automations_view",
                     "title": "Automations"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "weather.dark_sky",
+                            "name": "Forecast",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "entity": "camera.radar",
+                            "type": "picture-entity"
+                        }
+                    ],
+                    "title": "WEATHER"
                 }
             ]
         }

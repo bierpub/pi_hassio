@@ -60,6 +60,8 @@ automationOther:
     - automation.sun_room_camera_motion
     - input_boolean.cooper_door_button
     - automation.cooper_door_motion
+    - input_boolean.driveway_button
+    - automation.driveway_motion
 
 automationFibaro:
   name: Fibaro Automations
@@ -97,7 +99,7 @@ garage:
   name: Garage
   entities:
     - cover.volvo
-    - sensor.garage_status
+    - sensor.garagedoor_status
     - sensor.garage_car_present
       
 motion:
@@ -106,6 +108,8 @@ motion:
     - sensor.amcrest_camera_motion_detected
     - binary_sensor.hikrearcam_motion
     - binary_sensor.hikrearcam_field_detection
+    - binary_sensor.hikdriveway_motion
+    - binary_sensor.hikdriveway_field_detection
       
 media:
   name: Media
@@ -174,4 +178,5 @@ cameras_view:
     - camera.zeropicam
     - camera.doublezerocam
     - camera.hikrearcam
+    - camera.driveway
     - group.zoneminderSwitches

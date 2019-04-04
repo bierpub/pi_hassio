@@ -1,5 +1,6 @@
 - id: sun_room_camera_motion
   alias: "Sun Room Camera Motion"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
@@ -31,6 +32,7 @@
 
 - id: cooper_door_motion
   alias: "Cooper Door Motion"
+  initial_state: true
   trigger:
     platform: state
     entity_id: binary_sensor.hikrearcam_field_detection
@@ -56,3 +58,30 @@
       data:
         message: 'Cooper is at the back door!'
 
+- id: driveway_motion
+  alias: "Driveway Motion"
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hikdriveway_field_detection
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.driveway_button
+    state: 'on'
+  action:
+    - service: notify.ios_rachel_iphone
+      data:
+        title: "Driveway Motion"
+        message: 'Motion in the Driveway at {{now().strftime("%H:%M:%S")}}'
+    - service: notify.mypushbullet
+      data:
+        title: "Driveway Motion"
+        message: "Motion in the Driveway!"
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.driveway_button
+    - service: tts.google_say
+      entity_id: media_player.kitchen_home
+      data:
+        message: 'Someone is in the Driveway!'

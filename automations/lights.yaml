@@ -1,5 +1,6 @@
 - id: front_light_on_sunset
   alias: "Front Light On Sunset"
+  initial_state: true
   trigger:
     platform: sun
     event: sunset
@@ -10,6 +11,7 @@
 
 - id: front_light_off_sunrise
   alias: "Front Light Off Sunrise"
+  initial_state: true
   trigger:
     platform: sun
     event: sunrise
@@ -20,6 +22,7 @@
 
 - id: garage_entry_mudroom_light_on
   alias: "Garage Entry Mudroom Light On"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 

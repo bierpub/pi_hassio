@@ -50,3 +50,10 @@ tts
 www
 icloud
 .cloud
+
+# Ignore this folder
+.storage/*
+
+# Except allow these files
+!.storage/lovelace
+

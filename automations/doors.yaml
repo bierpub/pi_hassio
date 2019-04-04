@@ -1,5 +1,6 @@
 - id: sun_room_door_open
   alias: "Sun Room Door Open"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
@@ -27,6 +28,7 @@
 
 - id: front_door_open
   alias: "Front Door Open"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
@@ -50,6 +52,7 @@
 
 - id: den_door_open
   alias: "Den Door Open"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
@@ -73,6 +76,7 @@
 
 - id: garage_entry_open
   alias: "Garage Entry Open"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
@@ -96,6 +100,7 @@
 
 - id: test_door_open
   alias: "Test Door Open"
+  initial_state: false
   trigger:
     platform: state
     entity_id: 
@@ -119,10 +124,11 @@
 
 - id: garage_opened
   alias: "Garage Opened"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
-      - sensor.garage_status
+      - sensor.garagedoor_status
     to: "Open"
   action:
     - service: notify.ios_rachel_iphone
@@ -136,10 +142,11 @@
 
 - id: garage_closed
   alias: "Garage Closed"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
-      - sensor.garage_status
+      - sensor.garagedoor_status
     to: "Closed"
   action:
     - service: notify.ios_rachel_iphone
@@ -153,10 +160,11 @@
 
 - id: garage_open_long
   alias: "Garage Open Long"
+  initial_state: true
   trigger:
     platform: state
     entity_id: 
-      - sensor.garage_status
+      - sensor.garagedoor_status
     to: "Open"
     for:
       minutes: 30
@@ -172,12 +180,13 @@
 
 - id: garage_open_late
   alias: "Garage Open Late"
+  initial_state: true
   trigger:
     platform: time
     at: '22:30:00'
   condition:
     - condition: state
-      entity_id: sensor.garage_status
+      entity_id: sensor.garagedoor_status
       state: "Open"
   action:
     - service: notify.ios_rachel_iphone
@@ -191,12 +200,13 @@
 
 - id: garage_open_midnight
   alias: "Garage Open Midnight"
+  initial_state: true
   trigger:
     platform: time
     at: '00:00:00'
   condition:
     - condition: state
-      entity_id: sensor.garage_status
+      entity_id: sensor.garagedoor_status
       state: "Open"
   action:
     - service: notify.ios_rachel_iphone

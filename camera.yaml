@@ -15,10 +15,18 @@
 - platform: ffmpeg
   name: hikrearcam
   input: !secret hikrearcam_url
-  extra_arguments: -vf scale=640:360
+  extra_arguments: -vf scale=640:480
+- platform: ffmpeg
+  name: hikdriveway
+  input: !secret hikdriveway_url
+  extra_arguments: -vf scale=640:480
 #- platform: onvif
 #  name: hikrearcam
 #  host: 192.168.1.203
 #  username: !secret hikrearcam_username
 #  password: !secret hikrearcam_password
 #- platform: zoneminder
+- platform: generic
+  name: Radar
+  still_image_url: https://icons.wxug.com/data/weather-maps/radar/united-states/saint-cloud-minnesota-region-current-radar.gif
+  
