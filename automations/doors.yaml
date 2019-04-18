@@ -11,11 +11,9 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
+        value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
-        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
-      - condition: template
-        value_template: "{{ states('device_tracker.rachelsiphone') != 'home' }}"
+        value_template: "{{ states('person.rachel') != 'home' }}"
   action:
     - service: notify.ios_rachel_iphone
       data:
@@ -39,11 +37,9 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
+        value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
-        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
-      - condition: template
-        value_template: "{{ states('device_tracker.rachelsiphone') != 'home' }}"
+        value_template: "{{ states('person.rachel') != 'home' }}"
   action:
     - service: notify.mypushbullet
       data:
@@ -63,11 +59,9 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
+        value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
-        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
-      - condition: template
-        value_template: "{{ states('device_tracker.rachelsiphone') != 'home' }}"
+        value_template: "{{ states('person.rachel') != 'home' }}"
   action:
     - service: notify.mypushbullet
       data:
@@ -87,11 +81,9 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
+        value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
-        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
-      - condition: template
-        value_template: "{{ states('device_tracker.rachelsiphone') != 'home' }}"
+        value_template: "{{ states('person.rachel') != 'home' }}"
   action:
     - service: notify.mypushbullet
       data:
@@ -111,11 +103,9 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
+        value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
-        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
-      - condition: template
-        value_template: "{{ states('device_tracker.rachelsiphone') != 'home' }}"
+        value_template: "{{ states('person.rachel') != 'home' }}"
   action:
     - service: notify.mypushbullet
       data:

@@ -21,3 +21,8 @@
   - platform: pushbullet
     name: mypushbullet
     api_key: !secret pushbullet_api
+
+  - platform: webostv
+    name: livingroomtv
+    host: 192.168.1.22
+    filename: webostv.conf

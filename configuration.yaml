@@ -8,7 +8,6 @@ homeassistant:
   elevation: 307
   # metric for Metric, imperial for Imperial
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Chicago
   # Customization file
   customize: !include customize.yaml
@@ -106,6 +105,7 @@ tts:
 cast:
 system_health:
 person:
+stream:
 
 # Cloud
 #cloud:
@@ -159,6 +159,8 @@ zwave:
   device_config: !include zwave_device_config.yaml
   debug: true
 
+wake_on_lan:
+
 media_player:
   - platform: onkyo
     host: 192.168.1.20
@@ -171,7 +173,11 @@ media_player:
       internet-radio: 'NET'
   - platform: webostv
     name: Living Room TV
-    host: 192.168.1.21
+    host: 192.168.1.22
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: "A8:23:FE:37:1B:02"
     
 alarm_control_panel:
   - platform: manual
@@ -224,5 +230,3 @@ weather:
   - platform: darksky
     api_key: !secret darksky_api
 
-
-    

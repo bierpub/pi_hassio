@@ -11,16 +11,14 @@
   - condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('device_tracker.fa75j0303575') != 'home' }}"
+        value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
-        value_template: "{{ states('device_tracker.rachel_iphone') != 'home' }}"
-      - condition: template
-        value_template: "{{ states('device_tracker.rachelsiphone') != 'home' }}"
+        value_template: "{{ states('person.rachel') != 'home' }}"
   action:
     - service: camera.snapshot
       data:
         entity_id: camera.amcrest_camera
-        filename: "/config/www/camera/sunroom_capture.jpg"
+        filename: /config/www/camera/sunroom_capture.jpg
     - delay:
         seconds: 3
     - service: notify.mypushbullet
@@ -42,6 +40,13 @@
     entity_id: input_boolean.cooper_door_button
     state: 'on'
   action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.cooper_door_button
+    - service: tts.google_say
+      entity_id: media_player.kitchen_home
+      data:
+        message: 'Cooper is at the back door!'
     - service: notify.ios_rachel_iphone
       data:
         title: "Back Door Motion"
@@ -50,11 +55,7 @@
       data:
         title: "Back Door Motion"
         message: "Cooper is at the Back Door!"
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.cooper_door_button
-    - service: tts.google_say
-      entity_id: media_player.kitchen_home
+    - service: notify.livingroomtv
       data:
         message: 'Cooper is at the back door!'
 
@@ -70,14 +71,6 @@
     entity_id: input_boolean.driveway_button
     state: 'on'
   action:
-    - service: notify.ios_rachel_iphone
-      data:
-        title: "Driveway Motion"
-        message: 'Motion in the Driveway at {{now().strftime("%H:%M:%S")}}'
-    - service: notify.mypushbullet
-      data:
-        title: "Driveway Motion"
-        message: "Motion in the Driveway!"
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.driveway_button
@@ -85,3 +78,25 @@
       entity_id: media_player.kitchen_home
       data:
         message: 'Someone is in the Driveway!'
+    - service: notify.livingroomtv
+      data:
+        message: 'Someone is in the Driveway!!'
+    - service: camera.snapshot
+      data:
+        entity_id: camera.hikdriveway
+        filename: /config/www/camera/driveway_capture.jpg
+    - delay:
+        seconds: 2
+    - service: notify.ios_rachel_iphone
+      data:
+        title: "Driveway Motion"
+        message: 'Motion in the Driveway at {{now().strftime("%H:%M:%S")}}'
+        data:
+          file: /config/www/camera/driveway_capture.jpg
+    - service: notify.mypushbullet
+      data:
+        title: "Driveway Motion"
+        message: "Motion in the Driveway!"
+        data:
+          file: /config/www/camera/driveway_capture.jpg
+

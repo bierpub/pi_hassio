@@ -1,6 +1,16 @@
 {
     "data": {
         "config": {
+            "resources": [
+                {
+                    "type": "js",
+                    "url": "/local/lovelace/camera-card.js"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/lovelace/slider-entity-row.js"
+                }
+            ],
             "title": "Windsor",
             "views": [
                 {
@@ -70,51 +80,24 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "input_boolean.cooper_door_button",
-                            "hold_action": {
-                                "action": "more-info"
-                            },
-                            "name": "Cooper Door Button",
-                            "tap_action": {
-                                "action": "call-service",
-                                "service": "input_boolean.turn_on"
-                            },
-                            "type": "entity-button"
-                        },
-                        {
-                            "entity": "input_boolean.driveway_button",
-                            "hold_action": {
-                                "action": "none"
-                            },
-                            "tap_action": {
-                                "action": "call-service",
-                                "service": "input_boolean.turn_on"
-                            },
-                            "type": "entity-button"
-                        },
-                        {
                             "columns": 2,
                             "entities": [
                                 {
-                                    "entity": "switch.front_light_switch"
+                                    "entity": "input_boolean.cooper_door_button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "input_boolean.turn_on"
+                                    }
                                 },
                                 {
-                                    "entity": "switch.mudroom_light_switch"
-                                },
-                                {
-                                    "entity": "light.sun_bench_light_level"
-                                },
-                                {
-                                    "entity": "light.sun_outer_light_level"
-                                },
-                                {
-                                    "entity": "light.denled"
+                                    "entity": "input_boolean.driveway_button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "input_boolean.turn_on"
+                                    }
                                 }
                             ],
-                            "show_name": true,
-                            "show_state": true,
-                            "theme": "Backend-selected",
-                            "title": "Lights",
+                            "title": "Buttons",
                             "type": "glance"
                         }
                     ],
@@ -198,6 +181,20 @@
                             "type": "glance"
                         },
                         {
+                            "card": {
+                                "entity": "media_player.onkyo",
+                                "max": 60,
+                                "type": "custom:slider-entity-row"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.onkyo",
+                                    "state": "on"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
                             "entity": "media_player.onkyo",
                             "type": "media-control"
                         },
@@ -257,22 +254,22 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "device_tracker.fa75j0303575"
+                                    "entity": "person.jeff"
+                                },
+                                {
+                                    "entity": "person.rachel"
+                                },
+                                {
+                                    "entity": "device_tracker.bphone"
+                                },
+                                {
+                                    "entity": "device_tracker.0c_3e_9f_34_35_1c"
                                 },
                                 {
                                     "entity": "device_tracker.rachel_iphone"
                                 },
                                 {
-                                    "entity": "device_tracker.404e362264d2"
-                                },
-                                {
                                     "entity": "device_tracker.rachelsiphone"
-                                },
-                                {
-                                    "entity": "person.jeff"
-                                },
-                                {
-                                    "entity": "person.rachel"
                                 }
                             ],
                             "show_header_toggle": false,

@@ -2,7 +2,7 @@
   alias: 'Notify Jeff arrive Home'
   trigger:
     platform: zone
-    entity_id: device_tracker.fa75j0303575
+    entity_id: person.jeff
     zone: zone.Home
     event: enter
   action:
@@ -19,7 +19,7 @@
   alias: 'Notify Rachel arrive Home'
   trigger:
     platform: state
-    entity_id: device_tracker.rachelsiphone
+    entity_id: person.rachel
     from: 'not_home'
     to: 'home'
   action:
