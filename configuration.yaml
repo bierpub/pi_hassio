@@ -1,21 +1,18 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Home
+  #name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
+  #latitude: !secret home_latitude
+  #longitude: !secret home_longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 307
+  #elevation: 307
   # metric for Metric, imperial for Imperial
-  unit_system: imperial
-  time_zone: America/Chicago
+  #unit_system: imperial
+  #time_zone: America/Chicago
   # Customization file
   customize: !include customize.yaml
   whitelist_external_dirs:
     - /config/www/camera
-
-# Show links to resources in log and frontend
-#introduction:
 
 # Discover some devices automatically
 #discovery: false
@@ -52,17 +49,6 @@ updater:
 ifttt:
   key: !secret ifttt_key
 
-#mqtt:
-#  broker: localhost
-#  port: 1883
-#  client_id: home-assistant-9
-#  username: !secret mqtt_username
-#  password: !secret mqtt_password
-
-#mqtt:
-#  discovery: true
-#  discovery_prefix: homeassistant
-
 ios:
   push:
     categories:
@@ -77,11 +63,20 @@ ios:
             behavior: 'default'
 
 device_tracker:
-  - platform: gpslogger
   - platform: ddwrt
     host: 192.168.1.1
     username: !secret ddwrt_username
     password: !secret ddwrt_password
+
+proximity:
+  home:
+    ignored_zones:
+      - gmi
+    devices:
+      - person.jeff
+      - person.rachel
+    tolerance: 50
+    unit_of_measurement: mi
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -100,15 +95,13 @@ sun:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 cast:
 system_health:
 person:
 stream:
-
-# Cloud
-#cloud:
 
 automation: !include_dir_merge_list automations
 camera: !include camera.yaml
@@ -122,10 +115,8 @@ amcrest:
   - host: 192.168.1.202
     username: !secret amcrest_username
     password: !secret amcrest_password
-    sensors:
-      - motion_detector
-#      - sdcard
-#      - ptz_preset
+    binary_sensors:
+      - motion_detected
 
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
@@ -211,6 +202,10 @@ input_boolean:
     name: Driveway Button
     initial: off
     icon: mdi:car-estate
+  pixel_garage_proximity:
+    name: Pixel Garage Proximity
+    initial: off
+    icon: mdi:garage
 
 climate:
   platform: honeywell
@@ -230,3 +225,13 @@ weather:
   - platform: darksky
     api_key: !secret darksky_api
 
+recorder:
+  db_url: mysql://hass:CooperMaria@core-mariadb/homeassistant?charset=utf8
+  purge_keep_days: 7
+  purge_interval: 1
+  exclude:
+    domains: 
+      - zwave
+    entities:
+      - sun.sun
+      

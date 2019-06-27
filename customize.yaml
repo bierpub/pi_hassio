@@ -10,3 +10,10 @@
     entity_picture: /local/volvo.png
   sensor.garage_car_present:
     icon: mdi:car
+
+  person.jeff:
+    entity_picture: /local/jeff_pixel.png
+  
+  person.rachel:
+    entity_picture: /local/rachel_iphone.png
+

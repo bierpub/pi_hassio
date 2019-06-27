@@ -9,6 +9,10 @@
                 {
                     "type": "js",
                     "url": "/local/lovelace/slider-entity-row.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/lovelace/button-card.js"
                 }
             ],
             "title": "Windsor",
@@ -80,25 +84,45 @@
                             "type": "entities"
                         },
                         {
-                            "columns": 2,
-                            "entities": [
+                            "cards": [
                                 {
                                     "entity": "input_boolean.cooper_door_button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "input_boolean.turn_on"
-                                    }
+                                    "size": "80px",
+                                    "styles": {
+                                        "card": [
+                                            {
+                                                "width": "120px"
+                                            }
+                                        ]
+                                    },
+                                    "type": "custom:button-card"
                                 },
                                 {
                                     "entity": "input_boolean.driveway_button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "input_boolean.turn_on"
-                                    }
+                                    "size": "80px",
+                                    "styles": {
+                                        "card": [
+                                            {
+                                                "width": "120px"
+                                            }
+                                        ]
+                                    },
+                                    "type": "custom:button-card"
+                                },
+                                {
+                                    "entity": "input_boolean.pixel_garage_proximity",
+                                    "size": "80px",
+                                    "styles": {
+                                        "card": [
+                                            {
+                                                "width": "120px"
+                                            }
+                                        ]
+                                    },
+                                    "type": "custom:button-card"
                                 }
                             ],
-                            "title": "Buttons",
-                            "type": "glance"
+                            "type": "horizontal-stack"
                         }
                     ],
                     "path": "default_view",
@@ -260,16 +284,31 @@
                                     "entity": "person.rachel"
                                 },
                                 {
-                                    "entity": "device_tracker.bphone"
+                                    "entity": "device_tracker.ht81z1a01408"
                                 },
                                 {
-                                    "entity": "device_tracker.0c_3e_9f_34_35_1c"
+                                    "entity": "device_tracker.40_4e_36_92_9b_d6"
                                 },
                                 {
                                     "entity": "device_tracker.rachel_iphone"
                                 },
                                 {
                                     "entity": "device_tracker.rachelsiphone"
+                                },
+                                {
+                                    "entity": "proximity.home"
+                                },
+                                {
+                                    "entity": "person.mark"
+                                },
+                                {
+                                    "entity": "person.jan"
+                                },
+                                {
+                                    "entity": "person.suzie"
+                                },
+                                {
+                                    "entity": "person.gary"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -279,7 +318,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.amcrest_camera_motion_detected"
+                                    "entity": "binary_sensor.amcrest_camera_motion_detected"
                                 },
                                 {
                                     "entity": "binary_sensor.hikrearcam_motion"
@@ -474,6 +513,12 @@
                                 },
                                 {
                                     "entity": "automation.driveway_motion"
+                                },
+                                {
+                                    "entity": "input_boolean.pixel_garage_proximity"
+                                },
+                                {
+                                    "entity": "automation.pixel_garage_proximity_open"
                                 }
                             ],
                             "show_header_toggle": true,

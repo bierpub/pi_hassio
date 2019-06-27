@@ -28,3 +28,23 @@
         title: "Rachel has Arrived Home"
         message: 'Rachel has Arrived Home at {{now().strftime("%H:%M:%S")}}'
 
+- id: pixel_garage_proximity_open
+  alias: "Pixel Garage Proximity Open"
+  initial_state: true
+  trigger:
+    platform: zone
+    entity_id: person.jeff
+    zone: zone.Home
+    event: enter
+  condition:
+    condition: state
+    entity_id: input_boolean.pixel_garage_proximity
+    state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.pixel_garage_proximity
+    - service: cover.open_cover
+      data:
+        entity_id: cover.volvo
+

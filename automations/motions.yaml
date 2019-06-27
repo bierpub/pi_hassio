@@ -4,9 +4,8 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.amcrest_camera_motion_detected
-    from: "False"
-    to: "True"
+      - binary_sensor.amcrest_camera_motion_detected
+    to: 'on'
   condition:
   - condition: and
     conditions:
