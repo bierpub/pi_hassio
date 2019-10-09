@@ -13,6 +13,8 @@
         value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
         value_template: "{{ states('person.rachel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('person.suzie') != 'home' }}"
   action:
     - service: camera.snapshot
       data:
@@ -20,12 +22,12 @@
         filename: /config/www/camera/sunroom_capture.jpg
     - delay:
         seconds: 3
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Motion Detected in Sum Room'
         message: 'Motion Detected in Sun Room at {{now().strftime("%H:%M:%S")}}'
-        data:
-          file: /config/www/camera/sunroom_capture.jpg
+        #data:
+        #  file: /config/www/camera/sunroom_capture.jpg
 
 - id: cooper_door_motion
   alias: "Cooper Door Motion"
@@ -50,10 +52,12 @@
       data:
         title: "Back Door Motion"
         message: 'Cooper is at the Back Door at {{now().strftime("%H:%M:%S")}}'
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: "Back Door Motion"
         message: "Cooper is at the Back Door!"
+        data:
+          sound: tugboat
     - service: notify.livingroomtv
       data:
         message: 'Cooper is at the back door!'
@@ -92,10 +96,11 @@
         message: 'Motion in the Driveway at {{now().strftime("%H:%M:%S")}}'
         data:
           file: /config/www/camera/driveway_capture.jpg
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: "Driveway Motion"
         message: "Motion in the Driveway!"
         data:
-          file: /config/www/camera/driveway_capture.jpg
+          sound: tugboat
+        #  file: /config/www/camera/driveway_capture.jpg
 

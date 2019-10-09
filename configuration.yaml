@@ -213,9 +213,8 @@ climate:
   password: !secret honeywell_password
   region: 'us'
   scan_interval: 900
-  away_temperature: 64
-  away_heat_temperature: 64
-  away_cool_temperature: 82
+  away_heat_temperature: 62
+  away_cool_temperature: 83
 
 fastdotcom:
   scan_interval:
@@ -226,8 +225,9 @@ weather:
     api_key: !secret darksky_api
 
 recorder:
-  db_url: mysql://hass:CooperMaria@core-mariadb/homeassistant?charset=utf8
-  purge_keep_days: 7
+  #db_url: mysql://hass:MariaIsGood@core-mariadb/homeassistant?charset=utf8
+  #db_url: mysql://hass:MariaIsGood@127.0.0.1/homeassistant?charset=utf8
+  purge_keep_days: 5
   purge_interval: 1
   exclude:
     domains: 

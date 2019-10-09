@@ -9,10 +9,13 @@
     from: "off"
     to: "on"
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Flood Alert in Basement'
         message: 'Flood Alert in the basement at {{now().strftime("%H:%M:%S")}}'
+        data:
+          priority: 1
+          sound: updown
 
 - id: fibaro_basement_flood_tamper
   alias: "Fibaro Basement Flood Tamper"
@@ -24,7 +27,7 @@
     from: "off"
     to: "on"
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Flood Sensor Tampered with in Basement'
         message: 'Flood Sensor Tampered in the basement at {{now().strftime("%H:%M:%S")}}'
@@ -38,7 +41,7 @@
      - sensor.fibaro_basement_temperature_2
     above: 95
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Flood Sensor Temp Hot in Basement'
         message: 'Flood Sensor Temp is Hot in basement at {{now().strftime("%H:%M:%S")}}'
@@ -52,7 +55,7 @@
      - sensor.fibaro_basement_temperature_2
     below: 50
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Flood Sensor Temp Cold in Basement'
         message: 'Flood Sensor Temp is Cold in basement at {{now().strftime("%H:%M:%S")}}'

@@ -10,7 +10,7 @@
       data:
         title: "Jeff has Arrived Home"
         message: 'Jeff has Arrived Home at {{now().strftime("%H:%M:%S")}}'
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: "Jeff has Arrived Home"
         message: 'Jeff has Arrived Home at {{now().strftime("%H:%M:%S")}}'
@@ -23,7 +23,7 @@
     from: 'not_home'
     to: 'home'
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: "Rachel has Arrived Home"
         message: 'Rachel has Arrived Home at {{now().strftime("%H:%M:%S")}}'

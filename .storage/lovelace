@@ -4,15 +4,15 @@
             "resources": [
                 {
                     "type": "js",
-                    "url": "/local/lovelace/camera-card.js"
+                    "url": "/local/lovelace/camera-card.js?v=20190906"
                 },
                 {
                     "type": "js",
-                    "url": "/local/lovelace/slider-entity-row.js"
+                    "url": "/local/lovelace/slider-entity-row.js?v=20190906"
                 },
                 {
                     "type": "module",
-                    "url": "/local/lovelace/button-card.js"
+                    "url": "/local/lovelace/button-card.js?v=20190906"
                 }
             ],
             "title": "Windsor",
@@ -284,13 +284,7 @@
                                     "entity": "person.rachel"
                                 },
                                 {
-                                    "entity": "device_tracker.ht81z1a01408"
-                                },
-                                {
                                     "entity": "device_tracker.40_4e_36_92_9b_d6"
-                                },
-                                {
-                                    "entity": "device_tracker.rachel_iphone"
                                 },
                                 {
                                     "entity": "device_tracker.rachelsiphone"
@@ -299,16 +293,22 @@
                                     "entity": "proximity.home"
                                 },
                                 {
-                                    "entity": "person.mark"
+                                    "entity": "person.sydney"
                                 },
                                 {
                                     "entity": "person.jan"
                                 },
                                 {
-                                    "entity": "person.suzie"
+                                    "entity": "person.mark"
                                 },
                                 {
                                     "entity": "person.gary"
+                                },
+                                {
+                                    "entity": "person.suzie"
+                                },
+                                {
+                                    "entity": "person.jill"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -358,6 +358,30 @@
                                 "action": "more-info"
                             },
                             "type": "entity-button"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.obihai_last_reboot"
+                                },
+                                {
+                                    "entity": "sensor.obihai_obitalk_service_status"
+                                },
+                                {
+                                    "entity": "sensor.obihai_phone_port_status"
+                                },
+                                {
+                                    "entity": "sensor.obihai_phone_port_status_last_caller_info"
+                                },
+                                {
+                                    "entity": "sensor.obihai_reboot_required"
+                                },
+                                {
+                                    "entity": "sensor.obihai_sp1_service_status"
+                                }
+                            ],
+                            "title": "Obiahi",
+                            "type": "entities"
                         }
                     ],
                     "path": "devices_view",

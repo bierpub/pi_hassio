@@ -14,12 +14,14 @@
         value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
         value_template: "{{ states('person.rachel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('person.suzie') != 'home' }}"
   action:
     - service: notify.ios_rachel_iphone
       data:
         title: 'Sun Room Door is Open'
         message: 'Someone opened the Sun Room Door at {{now().strftime("%H:%M:%S")}}'
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Sun Room Door Open'
         message: 'The Sun Room Door was opened at {{now().strftime("%H:%M:%S")}}'
@@ -40,8 +42,10 @@
         value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
         value_template: "{{ states('person.rachel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('person.suzie') != 'home' }}"
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Front Door Open'
         message: 'The Front Door was opened at {{now().strftime("%H:%M:%S")}}'
@@ -62,8 +66,10 @@
         value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
         value_template: "{{ states('person.rachel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('person.suzie') != 'home' }}"
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Den Door Open'
         message: 'The Den Door was opened at {{now().strftime("%H:%M:%S")}}'
@@ -84,8 +90,10 @@
         value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
         value_template: "{{ states('person.rachel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('person.suzie') != 'home' }}"
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Garage Entry Door Open'
         message: 'The Garage Entry Door was opened at {{now().strftime("%H:%M:%S")}}'
@@ -106,8 +114,10 @@
         value_template: "{{ states('person.jeff') != 'home' }}"
       - condition: template
         value_template: "{{ states('person.rachel') != 'home' }}"
+      - condition: template
+        value_template: "{{ states('person.suzie') != 'home' }}"
   action:
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Test Door Open'
         message: 'The Test Door was opened at {{now().strftime("%H:%M:%S")}}'
@@ -125,7 +135,7 @@
       data:
         title: 'Garage Opened'
         message: 'Garage opened now at {{now().strftime("%H:%M:%S")}}'
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Garage Opened'
         message: 'Garage opened now at {{now().strftime("%H:%M:%S")}}'
@@ -138,15 +148,18 @@
     entity_id: 
       - sensor.garagedoor_status
     to: "Closed"
+#    from: "{{%- not is_state('sensor.garagedoor_status', 'Unknown') -%}}"
   action:
     - service: notify.ios_rachel_iphone
       data:
         title: 'Garage Closed'
         message: 'Garage closed now at {{now().strftime("%H:%M:%S")}}'
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Garage Closed'
         message: 'Garage closed now at {{now().strftime("%H:%M:%S")}}'
+        data:
+          priority: -1
 
 - id: garage_open_long
   alias: "Garage Open Long"
@@ -163,7 +176,7 @@
       data:
         title: 'Garage Open for 30'
         message: 'Garage has been open for 30 minutes'
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Garage Open for 30'
         message: 'Garage has been open for 30 minutes'
@@ -183,10 +196,13 @@
       data:
         title: 'Garage Open at 10:30pm'
         message: 'Garage is still open at 10:30pm'
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Garage Open at 10:30pm'
         message: 'Garage is still open at 10:30pm'
+        data:
+          priority: 1
+          sound: updown
 
 - id: garage_open_midnight
   alias: "Garage Open Midnight"
@@ -203,7 +219,10 @@
       data:
         title: 'Garage Open at Midnight'
         message: 'Garage is still open at Midnight!'
-    - service: notify.mypushbullet
+    - service: notify.pushover
       data:
         title: 'Garage Open at Midnight'
         message: 'Garage is still open at Midnight!'
+        data:
+          priority: 1
+          sound: updown

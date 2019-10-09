@@ -27,5 +27,5 @@
 #- platform: zoneminder
 - platform: generic
   name: Radar
-  still_image_url: https://icons.wxug.com/data/weather-maps/radar/united-states/saint-cloud-minnesota-region-current-radar.gif
+  still_image_url: https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usstc/current.png
   

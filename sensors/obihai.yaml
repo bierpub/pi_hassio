@@ -1,0 +1,4 @@
+platform: obihai
+host: 192.168.1.40
+username: !secret obihai_username
+password: !secret obihai_password
