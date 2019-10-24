@@ -234,4 +234,8 @@ recorder:
       - zwave
     entities:
       - sun.sun
+      - sensor.obihai_last_reboot
+      - cover.volvo
+
+
       

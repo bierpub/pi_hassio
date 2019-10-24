@@ -2,7 +2,8 @@ platform: template
 sensors:
   garagedoor_status:
     friendly_name: 'Volvo Door Status'
-    value_template: '{% if states.cover.volvo %}
+    value_template: >
+      {% if states.cover.volvo %}
         {% if states.cover.volvo.attributes["door_state"] == "open" %}
           Open
         {% elif states.cover.volvo.attributes["door_state"] == "closed" %}
@@ -14,12 +15,13 @@ sensors:
         {% else %}
           Unknown
         {% endif %}
-        {% else %}
+      {% else %}
         n/a
-        {% endif %}'
+      {% endif %}
   garage_car_present:
     friendly_name: 'Volvo in Garage'
-    value_template: '{% if states.cover.volvo %}
+    value_template: >
+      {% if states.cover.volvo %}
         {% if states.cover.volvo.state == "open" %}
           n/a
         {% elif ((states.cover.volvo.attributes["distance_sensor"] > 50) and (states.cover.volvo.attributes["distance_sensor"] < 140)) %}
@@ -27,6 +29,6 @@ sensors:
         {% else %}
           No
         {% endif %}
-        {% else %}
+      {% else %}
         n/a
-        {% endif %}'
+      {% endif %}

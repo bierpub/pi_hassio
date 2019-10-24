@@ -17,6 +17,3 @@
   person.rachel:
     entity_picture: /local/rachel_iphone.png
 
-  device_tracker.ht81z1a01408_2:
-    entity_picture: /local/jeff_pixel.png
-

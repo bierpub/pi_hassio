@@ -7,14 +7,8 @@
       - binary_sensor.amcrest_camera_motion_detected
     to: 'on'
   condition:
-  - condition: and
-    conditions:
-      - condition: template
-        value_template: "{{ states('person.jeff') != 'home' }}"
-      - condition: template
-        value_template: "{{ states('person.rachel') != 'home' }}"
-      - condition: template
-        value_template: "{{ states('person.suzie') != 'home' }}"
+  - condition: template
+    value_template: "{{ not is_state('sensor.someone_home', 'home') }}"
   action:
     - service: camera.snapshot
       data:

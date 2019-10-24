@@ -233,6 +233,29 @@
                         {
                             "entity": "media_player.kitchen_home",
                             "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.plex_duke"
+                                },
+                                {
+                                    "entity": "media_player.chrome"
+                                },
+                                {
+                                    "entity": "media_player.plex_pixel_2"
+                                },
+                                {
+                                    "entity": "media_player.plex_den_roku"
+                                },
+                                {
+                                    "entity": "media_player.plex_living_room_roku"
+                                },
+                                {
+                                    "entity": "media_player.plex_lg_oled55b8pua"
+                                }
+                            ],
+                            "type": "entities"
                         }
                     ],
                     "title": "Media"
@@ -309,6 +332,9 @@
                                 },
                                 {
                                     "entity": "person.jill"
+                                },
+                                {
+                                    "entity": "sensor.someone_home"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -362,9 +388,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.obihai_last_reboot"
-                                },
-                                {
                                     "entity": "sensor.obihai_obitalk_service_status"
                                 },
                                 {
@@ -380,6 +403,7 @@
                                     "entity": "sensor.obihai_sp1_service_status"
                                 }
                             ],
+                            "show_header_toggle": false,
                             "title": "Obiahi",
                             "type": "entities"
                         }

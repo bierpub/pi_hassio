@@ -1,0 +1,24 @@
+platform: template
+sensors:
+  someone_home:
+    friendly_name: 'Someone Is Home'
+    # Person Jeff
+    # Person Rachel
+    # Jeff Pixel2 Wifi
+    # Rachel iPhone 6s Wifi
+    # Person Suzie
+    value_template: >-
+      {%- if is_state("person.jeff", "home") -%}
+        home
+      {%- elif is_state("person.rachel", "home") -%}
+        home
+      {%- elif is_state("device_tracker.40_4e_36_92_9b_d6", "home") -%}
+        home
+      {%- elif is_state("device_tracker.rachelsiphone", "home") -%}
+        home
+      {%- elif is_state("person.suzie", "home") -%}
+        home
+      {%- else -%}
+        not_home
+      {%- endif %}
+
