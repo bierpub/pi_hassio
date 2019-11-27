@@ -42,7 +42,7 @@
       entity_id: media_player.kitchen_home
       data:
         message: 'Cooper is at the back door!'
-    - service: notify.ios_rachel_iphone
+    - service: notify.mobile_app_rachel_s_iphone
       data:
         title: "Back Door Motion"
         message: 'Cooper is at the Back Door at {{now().strftime("%H:%M:%S")}}'
@@ -84,7 +84,7 @@
         filename: /config/www/camera/driveway_capture.jpg
     - delay:
         seconds: 2
-    - service: notify.ios_rachel_iphone
+    - service: notify.mobile_app_rachel_s_iphone
       data:
         title: "Driveway Motion"
         message: 'Motion in the Driveway at {{now().strftime("%H:%M:%S")}}'

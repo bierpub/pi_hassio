@@ -11,7 +11,7 @@
   - condition: template
     value_template: "{{ not is_state('sensor.someone_home', 'home') }}"
   action:
-    - service: notify.ios_rachel_iphone
+    - service: notify.mobile_app_rachel_s_iphone
       data:
         title: 'Sun Room Door is Open'
         message: 'Someone opened the Sun Room Door at {{now().strftime("%H:%M:%S")}}'
@@ -104,7 +104,7 @@
   - condition: template
     value_template: "{{ not is_state('sensor.garagedoor_status', 'Unknown') }}"
   action:
-    - service: notify.ios_rachel_iphone
+    - service: notify.mobile_app_rachel_s_iphone
       data:
         title: 'Garage Opened'
         message: 'Garage opened now at {{now().strftime("%H:%M:%S")}}'
@@ -125,7 +125,7 @@
   - condition: template
     value_template: "{{ not is_state('sensor.garagedoor_status', 'Unknown') }}"
   action:
-    - service: notify.ios_rachel_iphone
+    - service: notify.mobile_app_rachel_s_iphone
       data:
         title: 'Garage Closed'
         message: 'Garage closed now at {{now().strftime("%H:%M:%S")}}'
@@ -147,7 +147,7 @@
     for:
       minutes: 30
   action:
-    - service: notify.ios_rachel_iphone
+    - service: notify.mobile_app_rachel_s_iphone
       data:
         title: 'Garage Open for 30'
         message: 'Garage has been open for 30 minutes'
@@ -167,7 +167,7 @@
       entity_id: sensor.garagedoor_status
       state: "Open"
   action:
-    - service: notify.ios_rachel_iphone
+    - service: notify.mobile_app_rachel_s_iphone
       data:
         title: 'Garage Open at 10:30pm'
         message: 'Garage is still open at 10:30pm'
@@ -190,7 +190,7 @@
       entity_id: sensor.garagedoor_status
       state: "Open"
   action:
-    - service: notify.ios_rachel_iphone
+    - service: notify.mobile_app_rachel_s_iphone
       data:
         title: 'Garage Open at Midnight'
         message: 'Garage is still open at Midnight!'
