@@ -6,10 +6,6 @@
     zone: zone.Home
     event: enter
   action:
-    - service: notify.mobile_app_rachel_s_iphone
-      data:
-        title: "Jeff has Arrived Home"
-        message: 'Jeff has Arrived Home at {{now().strftime("%H:%M:%S")}}'
     - service: notify.pushover
       data:
         title: "Jeff has Arrived Home"

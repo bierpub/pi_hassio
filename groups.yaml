@@ -1,6 +1,0 @@
-sunroom_lights:
-  name: Sunroom Lights
-  entities:
-    - light.sun_bench_light_level
-    - light.sun_outer_light_level
-

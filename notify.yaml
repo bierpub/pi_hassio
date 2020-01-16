@@ -28,11 +28,6 @@
     vapid_prv_key: !secret vapid_prv_key
     vapid_email: !secret vapid_email
 
-  - platform: webostv
-    name: livingroomtv
-    host: 192.168.1.22
-    filename: webostv.conf
-
   - platform: pushover
     name: pushover    
     api_key: !secret pushover_api

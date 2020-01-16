@@ -240,12 +240,6 @@
                                     "entity": "sensor.plex_duke"
                                 },
                                 {
-                                    "entity": "media_player.chrome"
-                                },
-                                {
-                                    "entity": "media_player.plex_pixel_2"
-                                },
-                                {
                                     "entity": "media_player.plex_den_roku"
                                 },
                                 {
@@ -253,6 +247,9 @@
                                 },
                                 {
                                     "entity": "media_player.plex_lg_oled55b8pua"
+                                },
+                                {
+                                    "entity": "media_player.plex_bedroom_roku"
                                 }
                             ],
                             "type": "entities"
@@ -307,7 +304,13 @@
                                     "entity": "person.rachel"
                                 },
                                 {
+                                    "entity": "device_tracker.pixel_2"
+                                },
+                                {
                                     "entity": "device_tracker.40_4e_36_92_9b_d6"
+                                },
+                                {
+                                    "entity": "device_tracker.74_42_8b_04_48_a0"
                                 },
                                 {
                                     "entity": "device_tracker.rachelsiphone"
@@ -318,6 +321,16 @@
                                 {
                                     "entity": "person.sydney"
                                 },
+                                {
+                                    "entity": "sensor.someone_home"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Phones",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
                                 {
                                     "entity": "person.jan"
                                 },
@@ -332,13 +345,10 @@
                                 },
                                 {
                                     "entity": "person.jill"
-                                },
-                                {
-                                    "entity": "sensor.someone_home"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Phones",
+                            "title": "Others",
                             "type": "entities"
                         },
                         {
@@ -365,10 +375,21 @@
                         },
                         {
                             "entities": [
-                                "binary_sensor.fibaro_basement_flood",
-                                "binary_sensor.fibaro_basement_general",
-                                "binary_sensor.fibaro_basement_sensor",
-                                "sensor.fibaro_basement_temperature_2"
+                                {
+                                    "entity": "binary_sensor.fibaro_basement_flood"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_basement_general"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_basement_sensor"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_basement_temperature_2"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_system_fgfs101_flood_sensor_battery_level"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Fibaro Flood Sensor",
@@ -405,6 +426,64 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Obiahi",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.basement_airthings_wave_radon_1_day_average"
+                                },
+                                {
+                                    "entity": "sensor.basement_airthings_wave_radon_long_term_average"
+                                },
+                                {
+                                    "entity": "sensor.basement_airthings_wave_temperature"
+                                },
+                                {
+                                    "entity": "sensor.basement_airthings_wave_humidity"
+                                },
+                                {
+                                    "entity": "sensor.basement_airthings_wave_illuminance"
+                                },
+                                {
+                                    "entity": "sensor.basement_airthings_wave_acceleration"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Airthings",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.mfc_j870dw_status"
+                                },
+                                {
+                                    "entity": "sensor.mfc_j870dw_b_w_counter"
+                                },
+                                {
+                                    "entity": "sensor.mfc_j870dw_color_counter"
+                                },
+                                {
+                                    "entity": "sensor.mfc_j870dw_page_counter"
+                                },
+                                {
+                                    "entity": "sensor.mfc_j870dw_black_ink_remaining"
+                                },
+                                {
+                                    "entity": "sensor.mfc_j870dw_cyan_ink_remaining"
+                                },
+                                {
+                                    "entity": "sensor.mfc_j870dw_magenta_ink_remaining"
+                                },
+                                {
+                                    "entity": "sensor.mfc_j870dw_yellow_ink_remaining"
+                                },
+                                {
+                                    "entity": "sensor.mfc_j870dw_uptime"
+                                }
+                            ],
+                            "title": "Brother Printer",
                             "type": "entities"
                         }
                     ],
@@ -478,35 +557,18 @@
                     "cards": [
                         {
                             "entities": [
-                                "automation.sun_room_door_open",
-                                "automation.front_door_open",
-                                "automation.den_door_open",
-                                "automation.garage_entry_open",
-                                "automation.test_door_open"
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Door Automations",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "automation.garage_opened",
-                                "automation.garage_closed",
-                                "automation.garage_open_long",
-                                "automation.garage_open_late",
-                                "automation.garage_open_midnight"
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Garage Automations",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "automation.front_light_on_sunset",
-                                "automation.front_light_off_sunrise",
-                                "automation.garage_entry_mudroom_light_on",
-                                "script.mudroom_switch_on",
-                                "script.mudroom_switch_off"
+                                {
+                                    "entity": "automation.front_light_on_sunset"
+                                },
+                                {
+                                    "entity": "automation.front_light_off_sunrise"
+                                },
+                                {
+                                    "entity": "script.mudroom_switch_on"
+                                },
+                                {
+                                    "entity": "script.mudroom_switch_off"
+                                }
                             ],
                             "show_header_toggle": true,
                             "title": "Light Automations",
@@ -521,22 +583,6 @@
                             ],
                             "show_header_toggle": true,
                             "title": "Fibaro Automations",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "automation.tv_on_late"
-                                },
-                                {
-                                    "entity": "automation.onkyo_on_late"
-                                },
-                                {
-                                    "entity": "automation.chromecast_on_late"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Device Automations",
                             "type": "entities"
                         },
                         {

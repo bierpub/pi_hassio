@@ -14,7 +14,7 @@ sensors:
         home
       {%- elif is_state("device_tracker.40_4e_36_92_9b_d6", "home") -%}
         home
-      {%- elif is_state("device_tracker.rachelsiphone", "home") -%}
+      {%- elif is_state("device_tracker.74_42_8b_04_48_a0", "home") -%}
         home
       {%- elif is_state("person.suzie", "home") -%}
         home

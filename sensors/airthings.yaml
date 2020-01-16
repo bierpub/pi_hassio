@@ -1,4 +1,4 @@
 platform: airthings_wave
 mac: "A0:E6:F8:23:3B:6A"
 name: 'Basement Airthings Wave'
-scan_interval: 300
+scan_interval: 1800
