@@ -19,15 +19,33 @@
             "views": [
                 {
                     "badges": [
-                        "sensor.dark_sky_summary",
-                        "sensor.dark_sky_temperature",
-                        "sensor.dark_sky_apparent_temperature",
-                        "sensor.dark_sky_humidity",
-                        "sensor.dark_sky_cloud_coverage",
-                        "sensor.dark_sky_precip",
-                        "sensor.dark_sky_wind_speed",
-                        "sensor.dark_sky_wind_bearing",
-                        "sun.sun"
+                        {
+                            "entity": "sensor.dark_sky_summary"
+                        },
+                        {
+                            "entity": "sensor.dark_sky_temperature"
+                        },
+                        {
+                            "entity": "sensor.dark_sky_apparent_temperature"
+                        },
+                        {
+                            "entity": "sensor.dark_sky_humidity"
+                        },
+                        {
+                            "entity": "sensor.dark_sky_cloud_coverage"
+                        },
+                        {
+                            "entity": "sensor.dark_sky_precip"
+                        },
+                        {
+                            "entity": "sensor.dark_sky_wind_speed"
+                        },
+                        {
+                            "entity": "sensor.dark_sky_wind_bearing"
+                        },
+                        {
+                            "entity": "sun.sun"
+                        }
                     ],
                     "cards": [
                         {
@@ -48,11 +66,27 @@
                         },
                         {
                             "entities": [
-                                "switch.mudroom_light_switch",
-                                "switch.front_light_switch",
-                                "light.sun_bench_light_level",
-                                "light.sun_outer_light_level",
-                                "light.denled"
+                                {
+                                    "entity": "switch.kitchen_cabinet",
+                                    "state_color": true
+                                },
+                                {
+                                    "entity": "switch.mudroom_light_switch",
+                                    "state_color": true
+                                },
+                                {
+                                    "entity": "switch.front_light_switch",
+                                    "state_color": true
+                                },
+                                {
+                                    "entity": "light.sun_bench_light_level"
+                                },
+                                {
+                                    "entity": "light.sun_outer_light_level"
+                                },
+                                {
+                                    "entity": "light.denled"
+                                }
                             ],
                             "show_header_toggle": true,
                             "title": "Lights",
@@ -71,17 +105,12 @@
                         {
                             "entity": "alarm_control_panel.alarm_panel",
                             "name": "Alarm",
-                            "type": "alarm-panel"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "alarm_control_panel.alarm_panel"
-                                }
+                            "states": [
+                                "arm_home",
+                                "arm_away",
+                                "arm_night"
                             ],
-                            "show_header_toggle": false,
-                            "title": "Alarm Status",
-                            "type": "entities"
+                            "type": "alarm-panel"
                         },
                         {
                             "cards": [
@@ -125,6 +154,7 @@
                             "type": "horizontal-stack"
                         }
                     ],
+                    "icon": "mdi:home-account",
                     "path": "default_view",
                     "title": "Home"
                 },
@@ -150,7 +180,6 @@
                                 },
                                 {
                                     "entity": "script.onkyo_fm_preset3",
-                                    "entity_picture": "/local/jeff_pixel.png",
                                     "tap_action": {
                                         "action": "call-service",
                                         "service": "script.onkyo_fm_preset3"
@@ -195,7 +224,7 @@
                                     "entity": "script.chromecast_on",
                                     "tap_action": {
                                         "action": "call-service",
-                                        "service": "script.chromecast_on"
+                                        "service": "script.onkyo_source_chromecast"
                                     }
                                 }
                             ],
@@ -255,6 +284,7 @@
                             "type": "entities"
                         }
                     ],
+                    "icon": "mdi:television",
                     "title": "Media"
                 },
                 {
@@ -289,6 +319,8 @@
                             "type": "entities"
                         }
                     ],
+                    "icon": "mdi:door-open",
+                    "panel": false,
                     "path": "doors_view",
                     "title": "Doors"
                 },
@@ -296,61 +328,68 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
-                                {
-                                    "entity": "person.jeff"
-                                },
-                                {
-                                    "entity": "person.rachel"
-                                },
-                                {
-                                    "entity": "device_tracker.pixel_2"
-                                },
-                                {
-                                    "entity": "device_tracker.40_4e_36_92_9b_d6"
-                                },
-                                {
-                                    "entity": "device_tracker.74_42_8b_04_48_a0"
-                                },
-                                {
-                                    "entity": "device_tracker.rachelsiphone"
-                                },
-                                {
-                                    "entity": "proximity.home"
-                                },
-                                {
-                                    "entity": "person.sydney"
-                                },
-                                {
-                                    "entity": "sensor.someone_home"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Phones",
-                            "type": "entities"
+                            "entity": "camera.amcrest_camera",
+                            "name": "Sunroom",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.foscamcam",
+                            "name": "Garage",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.hikrearcam",
+                            "name": "Rear Yard",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.hikdriveway",
+                            "name": "Driveway",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.doublezerocam",
+                            "name": "Office",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.zeropicam",
+                            "name": "Front Yard",
+                            "type": "picture-entity"
                         },
                         {
                             "entities": [
                                 {
-                                    "entity": "person.jan"
+                                    "entity": "switch.garage_state"
                                 },
                                 {
-                                    "entity": "person.mark"
+                                    "entity": "switch.frontyard_state"
                                 },
                                 {
-                                    "entity": "person.gary"
+                                    "entity": "switch.den_state"
                                 },
                                 {
-                                    "entity": "person.suzie"
+                                    "entity": "switch.driveway_state"
                                 },
                                 {
-                                    "entity": "person.jill"
+                                    "entity": "switch.rearyard_state"
+                                },
+                                {
+                                    "entity": "switch.sunroom_state"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Others",
+                            "title": "Zoneminder Switches",
                             "type": "entities"
-                        },
+                        }
+                    ],
+                    "icon": "mdi:cctv",
+                    "path": "cameras_view",
+                    "title": "Cameras"
+                },
+                {
+                    "badges": [],
+                    "cards": [
                         {
                             "entities": [
                                 {
@@ -483,10 +522,22 @@
                                     "entity": "sensor.mfc_j870dw_uptime"
                                 }
                             ],
+                            "show_header_toggle": false,
                             "title": "Brother Printer",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.hugo_670162_battery"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Hugo",
                             "type": "entities"
                         }
                     ],
+                    "icon": "mdi:devices",
                     "path": "devices_view",
                     "title": "Devices"
                 },
@@ -494,97 +545,66 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "camera.amcrest_camera",
-                            "name": "Sunroom",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.foscamcam",
-                            "name": "Garage",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.hikrearcam",
-                            "name": "Rear Yard",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.hikdriveway",
-                            "name": "Driveway",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.doublezerocam",
-                            "name": "Office",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.zeropicam",
-                            "name": "Front Yard",
-                            "type": "picture-entity"
+                            "entities": [
+                                {
+                                    "entity": "person.jeff"
+                                },
+                                {
+                                    "entity": "person.rachel"
+                                },
+                                {
+                                    "entity": "device_tracker.pixel_2_2"
+                                },
+                                {
+                                    "entity": "device_tracker.6a_d5_00_34_60_05"
+                                },
+                                {
+                                    "entity": "device_tracker.74_42_8b_04_48_a0"
+                                },
+                                {
+                                    "entity": "proximity.home"
+                                },
+                                {
+                                    "entity": "person.sydney"
+                                },
+                                {
+                                    "entity": "sensor.someone_home"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Phones",
+                            "type": "entities"
                         },
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.garage_state"
+                                    "entity": "person.jan"
                                 },
                                 {
-                                    "entity": "switch.frontyard_state"
+                                    "entity": "person.mark"
                                 },
                                 {
-                                    "entity": "switch.den_state"
+                                    "entity": "person.gary"
                                 },
                                 {
-                                    "entity": "switch.driveway_state"
+                                    "entity": "person.suzie"
                                 },
                                 {
-                                    "entity": "switch.rearyard_state"
-                                },
-                                {
-                                    "entity": "switch.sunroom_state"
+                                    "entity": "person.jill"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Zoneminder Switches",
+                            "title": "Others",
                             "type": "entities"
                         }
                     ],
-                    "path": "cameras_view",
-                    "title": "Cameras"
+                    "icon": "mdi:account-multiple",
+                    "path": "people_view",
+                    "title": "People"
                 },
                 {
                     "badges": [],
                     "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "automation.front_light_on_sunset"
-                                },
-                                {
-                                    "entity": "automation.front_light_off_sunrise"
-                                },
-                                {
-                                    "entity": "script.mudroom_switch_on"
-                                },
-                                {
-                                    "entity": "script.mudroom_switch_off"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Light Automations",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "automation.fibaro_basement_flood_water_alert",
-                                "automation.fibaro_basement_flood_tamper",
-                                "automation.fibaro_basement_temp_hot",
-                                "automation.fibaro_basement_temp_cold"
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Fibaro Automations",
-                            "type": "entities"
-                        },
                         {
                             "entities": [
                                 {
@@ -594,32 +614,21 @@
                                     "entity": "automation.notify_rachel_arrive_home"
                                 },
                                 {
-                                    "entity": "automation.sun_room_camera_motion"
-                                },
-                                {
                                     "entity": "input_boolean.cooper_door_button"
-                                },
-                                {
-                                    "entity": "automation.cooper_door_motion"
                                 },
                                 {
                                     "entity": "input_boolean.driveway_button"
                                 },
                                 {
-                                    "entity": "automation.driveway_motion"
-                                },
-                                {
                                     "entity": "input_boolean.pixel_garage_proximity"
-                                },
-                                {
-                                    "entity": "automation.pixel_garage_proximity_open"
                                 }
                             ],
-                            "show_header_toggle": true,
-                            "title": "Other Automations",
+                            "show_header_toggle": false,
+                            "title": "Notifications",
                             "type": "entities"
                         }
                     ],
+                    "icon": "mdi:home-automation",
                     "path": "automations_view",
                     "title": "Automations"
                 },
@@ -636,6 +645,7 @@
                             "type": "picture-entity"
                         }
                     ],
+                    "icon": "mdi:weather-hail",
                     "title": "WEATHER"
                 }
             ]

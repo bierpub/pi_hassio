@@ -178,7 +178,6 @@ alarm_control_panel:
 
 google_assistant:
   project_id: !secret google_asst_project_id
-  api_key: !secret google_asst_api_key
 
 light:
   - platform: flux_led
@@ -207,6 +206,14 @@ input_boolean:
     name: Pixel Garage Proximity
     initial: off
     icon: mdi:garage
+  cooper_is_home:
+    name: Cooper Is Home
+    initial: off
+    icon: mdi:dog-side
+  vacation:
+    name: Vacation
+    initial: off
+    icon: mdi:wallet-travel
 
 climate:
   platform: honeywell

@@ -1,160 +1,35 @@
-mudroom_switch_on:
-  alias: 'Mudroom Switch On'
-  sequence:
-    - service: script.turn_off
-      data:
-        entity_id: script.mudroom_switch_off
-    - service: switch.turn_on
-      data:
-         entity_id: switch.mudroom_light_switch
-    # Set new timer
-    - service: script.turn_on
-      data:
-        entity_id: script.mudroom_switch_off
-
-mudroom_switch_off:
-  alias: 'Mudroom Switch Off'
-  sequence:
-    - delay:
-        minutes: 20
-    - service: switch.turn_off
-      data:
-        entity_id: switch.mudroom_light_switch
-
-onkyo_on:
-  alias: Onkyo On
-  sequence:
-    - service: media_player.turn_on
-      data:
-        entity_id: media_player.onkyo
-
-        
-onkyo_off:
-  alias: Onkyo Off
-  sequence:
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.onkyo
-
 onkyo_source_chromecast:
-  alias: Onkyo Source Chromecast
-  sequence:
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.onkyo
-        source: 'Chromecast'
-
-onkyo_source_fm:
-  alias: Onkyo Source FM
-  sequence:
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.onkyo
-        source: 'FM'
-
-chromecast_on:
   alias: Chromecast
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_chromecast
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.onkyo
-        volume_level: '0.25'
 
 onkyo_fm_preset1:
   alias: Go 96.3
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_fm
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.onkyo
-        media_content_type: 'radio'
-        media_content_id: 1
         
 onkyo_fm_preset2:
   alias: KFAN 100.3
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_fm
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.onkyo
-        media_content_type: 'radio'
-        media_content_id: 2
 
 onkyo_fm_preset3:
   alias: Current 89.3
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_fm
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.onkyo
-        media_content_type: 'radio'
-        media_content_id: 3
 
 onkyo_fm_preset4:
   alias: Cities97 97.1
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_fm
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.onkyo
-        media_content_type: 'radio'
-        media_content_id: 4
 
 onkyo_fm_preset5:
   alias: KS95 94.5
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_fm
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.onkyo
-        media_content_type: 'radio'
-        media_content_id: 5
 
 onkyo_fm_preset6:
   alias: 93x 93.7
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_fm
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.onkyo
-        media_content_type: 'radio'
-        media_content_id: 6
 
 onkyo_fm_preset7:
   alias: KDWB 101.3
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_fm
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.onkyo
-        media_content_type: 'radio'
-        media_content_id: 7
 
 onkyo_fm_preset8:
   alias: MPR 91.1
   sequence:
-    - service: script.turn_on
-      data:
-        entity_id: script.onkyo_source_fm
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.onkyo
-        media_content_type: 'radio'
-        media_content_id: 8
