@@ -20,12 +20,11 @@
   name: hikdriveway
   input: !secret hikdriveway_url
   extra_arguments: -vf scale=640:480
-#- platform: generic
-#  name: hikrearyard
-#  still_image_url: !secret hikrearyard_still
-#  stream_source: !secret hikrearyard_stream
+- platform: ffmpeg
+  name: hikfrontdoor
+  input: !secret hikfrontdoor_url
+  extra_arguments: -vf scale=640:480
 #- platform: zoneminder
 - platform: generic
   name: Radar
   still_image_url: https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usstc/current.png
-  

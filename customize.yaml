@@ -10,3 +10,27 @@
   person.rachel:
     entity_picture: /local/rachel_iphone.png
 
+  script.onkyo_fm_preset1:
+    entity_picture: /local/radio/radio963.png
+
+  script.onkyo_fm_preset2:
+    entity_picture: /local/radio/radio1003.png
+
+  script.onkyo_fm_preset3:
+    entity_picture: /local/radio/radio893.png
+
+  script.onkyo_fm_preset4:
+    entity_picture: /local/radio/radio971.png
+
+  script.onkyo_fm_preset5:
+    entity_picture: /local/radio/radio945.png
+
+  script.onkyo_fm_preset6:
+    entity_picture: /local/radio/radio937.png
+
+  script.onkyo_fm_preset7:
+    entity_picture: /local/radio/radio1013.png
+
+  script.onkyo_fm_preset8:
+    entity_picture: /local/radio/radio911.png
+

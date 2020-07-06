@@ -1,5 +1,6 @@
 onkyo_source_chromecast:
   alias: Chromecast
+  icon: mdi:cast
   sequence:
 
 onkyo_fm_preset1:

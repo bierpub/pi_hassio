@@ -1,18 +1,9 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
-  #name: Home
-  # Location required to calculate the time the sun rises and sets
-  #latitude: !secret home_latitude
-  #longitude: !secret home_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  #elevation: 307
-  # metric for Metric, imperial for Imperial
-  #unit_system: imperial
-  #time_zone: America/Chicago
   # Customization file
   customize: !include customize.yaml
   whitelist_external_dirs:
     - /config/www/camera
+    - /config/tts
 
 #Show Hass.io tab
 hassio:
@@ -25,20 +16,12 @@ frontend:
 config:
 
 http:
-  # Secrets are defined in the file secrets.yaml
-  # api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  base_url: !secret baseurl
   login_attempts_threshold: 6
   ip_ban_enabled: true
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
 # Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
 
 # Optional, allows Home Assistant developers to focus on popular components.
@@ -98,6 +81,7 @@ sun:
 tts:
   - platform: google_translate
     service_name: google_say
+    base_url: !secret google_say_base_url
 
 cast:
 system_health:
@@ -109,7 +93,6 @@ camera: !include camera.yaml
 notify: !include notify.yaml
 script: !include scripts.yaml
 sensor: !include_dir_list sensors
-zone: !include zones.yaml
 
 amcrest:
   - host: 192.168.1.202
@@ -136,12 +119,16 @@ switch:
 binary_sensor:
   - platform: hikvision
     host: 192.168.1.203
-    username: !secret hikrearcam_username
-    password: !secret hikrearcam_password
+    username: !secret hikcamera_username
+    password: !secret hikcamera_password
   - platform: hikvision
     host: 192.168.1.204
-    username: !secret hikrearcam_username
-    password: !secret hikrearcam_password        
+    username: !secret hikcamera_username
+    password: !secret hikcamera_password        
+  - platform: hikvision
+    host: 192.168.1.205
+    username: !secret hikcamera_username
+    password: !secret hikcamera_password        
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -219,10 +206,13 @@ climate:
   platform: honeywell
   username: !secret honeywell_username
   password: !secret honeywell_password
-  region: 'us'
   scan_interval: 900
   away_heat_temperature: 62
   away_cool_temperature: 83
+
+schluter:
+  username: !secret schluter_username
+  password: !secret schluter_password
 
 fastdotcom:
   scan_interval:
@@ -235,7 +225,6 @@ weather:
 recorder:
   db_url: mysql://hass:blahBlah9876@core-mariadb/homeassistant?charset=utf8
   purge_keep_days: 5
-  purge_interval: 1
   exclude:
     domains: 
       - zwave
