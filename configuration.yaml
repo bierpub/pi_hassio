@@ -1,7 +1,7 @@
 homeassistant:
   # Customization file
   customize: !include customize.yaml
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /config/www/camera
     - /config/tts
 
@@ -18,17 +18,15 @@ config:
 http:
   login_attempts_threshold: 6
   ip_ban_enabled: true
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+  use_x_forwarded_for: true
+  trusted_proxies: 
+    - 192.168.1.98
 
 # Checks for available updates
 updater:
 
-# Optional, allows Home Assistant developers to focus on popular components.
-# include_used_components: true
-  
-ifttt:
-  key: !secret ifttt_key
+#ifttt:
+#  key: !secret ifttt_key
 
 discovery:
 mobile_app:
@@ -51,7 +49,11 @@ device_tracker:
     host: 192.168.1.1
     username: !secret ddwrt_username
     password: !secret ddwrt_password
-
+  - platform: ddwrt
+    host: 192.168.1.2
+    username: !secret ddwrt_username
+    password: !secret ddwrt_password
+    
 proximity:
   home:
     ignored_zones:
@@ -181,6 +183,10 @@ cover:
         device_key: !secret openGarageKey
 
 input_boolean:
+  front_door_motion_button:
+    name: Front Door Motion Button
+    initial: off
+    icon: mdi:doorbell-video
   cooper_door_button:
     name: Cooper Door Button
     initial: off
@@ -224,7 +230,7 @@ weather:
 
 recorder:
   db_url: mysql://hass:blahBlah9876@core-mariadb/homeassistant?charset=utf8
-  purge_keep_days: 5
+  purge_keep_days: 15
   exclude:
     domains: 
       - zwave

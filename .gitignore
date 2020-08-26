@@ -53,6 +53,9 @@ icloud
 
 # Ignore this folder
 .storage/*
+custom_components/hacs
+node-red
+themes
 
 # Except allow these files
 !.storage/lovelace
