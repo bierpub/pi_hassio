@@ -3,6 +3,11 @@
   host: 192.168.1.202
   username: !secret amcrest_username
   password: !secret amcrest_password
+- platform: amcrest
+  name: dexterCam
+  host: 192.168.1.212
+  username: !secret amcrest_username
+  password: !secret amcrest_password
 - platform: mjpeg
   name: foscamCam
   mjpeg_url: !secret foscam_url

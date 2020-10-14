@@ -88,11 +88,11 @@ sensors:
       {%- else -%}
         mdi:door-closed
       {%- endif %}
-  template_test_door:
-    friendly_name: 'Test Door'
+  template_dexter_door:
+    friendly_name: 'Dexter Door'
     value_template: >-
-      {%- if is_state("sensor.test_door_alarm_level", "255") -%}
-        {%- if is_state("sensor.test_door_burglar", "3") -%}
+      {%- if is_state("sensor.dexter_door_alarm_level", "255") -%}
+        {%- if is_state("sensor.dexter_door_burglar", "3") -%}
           Tampered
         {%- else -%}
           Open
@@ -101,8 +101,8 @@ sensors:
         Closed
       {%- endif %}
     icon_template: >-
-      {%- if is_state("sensor.test_door_alarm_level", "255") -%}
-        {%- if is_state("sensor.test_door_burglar", "3") -%}
+      {%- if is_state("sensor.dexter_door_alarm_level", "255") -%}
+        {%- if is_state("sensor.dexter_door_burglar", "3") -%}
           mdi:sim-alert
         {%- else -%}
           mdi:door-open

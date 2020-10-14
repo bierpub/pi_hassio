@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
             "title": "Windsor",
@@ -135,6 +137,23 @@
                                 },
                                 {
                                     "entity": "input_boolean.front_door_motion_button",
+                                    "size": "80px",
+                                    "styles": {
+                                        "card": [
+                                            {
+                                                "width": "90px"
+                                            }
+                                        ]
+                                    },
+                                    "type": "custom:button-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "input_boolean.dexter_button",
                                     "size": "80px",
                                     "styles": {
                                         "card": [
@@ -315,11 +334,21 @@
                         },
                         {
                             "entities": [
-                                "sensor.template_front_door",
-                                "sensor.template_sun_room_door",
-                                "sensor.template_den_door",
-                                "sensor.template_garage_entry",
-                                "sensor.template_test_door"
+                                {
+                                    "entity": "sensor.template_front_door"
+                                },
+                                {
+                                    "entity": "sensor.template_sun_room_door"
+                                },
+                                {
+                                    "entity": "sensor.template_den_door"
+                                },
+                                {
+                                    "entity": "sensor.template_garage_entry"
+                                },
+                                {
+                                    "entity": "sensor.template_dexter_door"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Doors",
@@ -352,8 +381,9 @@
                             "type": "picture-entity"
                         },
                         {
+                            "aspect_ratio": "0%",
                             "entity": "camera.amcrest_camera",
-                            "name": "Sunroom",
+                            "name": "Dexter Camera",
                             "type": "picture-entity"
                         },
                         {
@@ -383,6 +413,9 @@
                                 },
                                 {
                                     "entity": "switch.sunroom_state"
+                                },
+                                {
+                                    "entity": "switch.dexter_state"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -488,6 +521,9 @@
                                     "entity": "binary_sensor.hikdriveway_field_detection"
                                 },
                                 {
+                                    "entity": "binary_sensor.hikdriveway_line_crossing"
+                                },
+                                {
                                     "entity": "binary_sensor.hikfrontdoor_motion"
                                 },
                                 {
@@ -499,21 +535,6 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Motion",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "binary_sensor.myfielddetector1_field_detection",
-                                "binary_sensor.mymotiondetectorrule_cell_motion_detection",
-                                "binary_sensor.videosource_1_motion_alarm",
-                                "binary_sensor.myfielddetector1_field_detection_2",
-                                "binary_sensor.mymotiondetectorrule_cell_motion_detection_2",
-                                "binary_sensor.videosource_1_motion_alarm_2",
-                                "binary_sensor.myfielddetector1_field_detection_3",
-                                "binary_sensor.mymotiondetectorrule_cell_motion_detection_3",
-                                "binary_sensor.videosource_1_motion_alarm_3"
-                            ],
-                            "title": "Camera Detections",
                             "type": "entities"
                         },
                         {
@@ -534,17 +555,6 @@
                             "show_header_toggle": false,
                             "title": "Fibaro Flood Sensor",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "sensor.fast_com_download",
-                            "hold_action": {
-                                "action": "call-service",
-                                "service": "fastdotcom.speedtest"
-                            },
-                            "tap_action": {
-                                "action": "more-info"
-                            },
-                            "type": "entity-button"
                         },
                         {
                             "entities": [
@@ -687,6 +697,9 @@
                                     "entity": "input_boolean.front_door_motion_button"
                                 },
                                 {
+                                    "entity": "input_boolean.dexter_button"
+                                },
+                                {
                                     "entity": "input_boolean.pixel_garage_proximity"
                                 }
                             ],
@@ -727,7 +740,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }

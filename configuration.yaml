@@ -97,12 +97,12 @@ script: !include scripts.yaml
 sensor: !include_dir_list sensors
 
 amcrest:
-  - host: 192.168.1.202
+  - host: 192.168.1.212
     username: !secret amcrest_username
     password: !secret amcrest_password
     binary_sensors:
       - motion_detected
-
+      
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
 
@@ -191,6 +191,10 @@ input_boolean:
     name: Cooper Door Button
     initial: off
     icon: mdi:dog-side
+  dexter_button:
+    name: Dexter Garage Button
+    initial: off
+    icon: mdi:car-estate
   driveway_button:
     name: Driveway Button
     initial: off
@@ -219,10 +223,6 @@ climate:
 schluter:
   username: !secret schluter_username
   password: !secret schluter_password
-
-fastdotcom:
-  scan_interval:
-    hours: 3
 
 weather:
   - platform: darksky
